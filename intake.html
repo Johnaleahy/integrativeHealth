@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charter Member Intake — Integrative Health Institute</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0B1D3A;
+            --navy-light: #122B52;
+            --teal: #2EC4B6;
+            --teal-dark: #1FA99C;
+            --teal-glow: rgba(46, 196, 182, 0.15);
+            --gold: #D4A853;
+            --gold-light: #E8C87A;
+            --white: #FFFFFF;
+            --off-white: #F7F9FC;
+            --grey-light: #E8ECF2;
+            --grey: #8896A8;
+            --text: #1A2A40;
+            --text-light: #5A6B80;
+            --radius: 16px;
+            --shadow: 0 4px 24px rgba(11, 29, 58, 0.08);
+            --shadow-lg: 0 12px 48px rgba(11, 29, 58, 0.12);
+            --red: #E85D5D;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--off-white);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+        h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+        h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); margin-bottom: 0.5rem; }
+        h3 { font-size: 1.15rem; }
+
+        .section-label {
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── Header ── */
+        .form-header {
+            background: linear-gradient(160deg, var(--navy) 0%, #0E2548 50%, #132F5E 100%);
+            padding: 48px 24px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .form-header::before {
+            content: '';
+            position: absolute;
+            top: -40%; right: -20%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .form-header .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            transition: color 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+        .form-header .back-link:hover { color: var(--teal); }
+        .form-header h1 { color: var(--white); margin-bottom: 8px; position: relative; z-index: 2; }
+        .form-header h1 em { font-style: normal; color: var(--teal); }
+        .form-header p { color: rgba(255,255,255,0.6); font-size: 1rem; position: relative; z-index: 2; }
+
+        /* ── Progress Bar ── */
+        .progress-container {
+            background: var(--white);
+            border-bottom: 1px solid var(--grey-light);
+            padding: 24px 24px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(11, 29, 58, 0.06);
+        }
+        .progress-steps {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .progress-step {
+            flex: 1;
+            text-align: center;
+            padding-bottom: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+        .progress-step .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: var(--grey-light);
+            color: var(--grey);
+            margin-bottom: 6px;
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+        .progress-step.active .step-num {
+            background: var(--teal);
+            color: var(--white);
+            box-shadow: 0 3px 12px rgba(46, 196, 182, 0.35);
+        }
+        .progress-step.completed .step-num {
+            background: var(--navy);
+            color: var(--white);
+        }
+        .progress-step .step-text {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--grey);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+        .progress-step.active .step-text { color: var(--teal); }
+        .progress-step.completed .step-text { color: var(--navy); }
+
+        /* Progress line */
+        .progress-line {
+            position: absolute;
+            top: 16px;
+            left: 8%;
+            right: 8%;
+            height: 3px;
+            background: var(--grey-light);
+            border-radius: 2px;
+            z-index: 1;
+        }
+        .progress-line-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--navy), var(--teal));
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        /* ── Form Container ── */
+        .form-wrapper {
+            max-width: 720px;
+            margin: -28px auto 60px;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            padding: 48px 44px;
+            min-height: 400px;
+        }
+        @media (max-width: 640px) {
+            .form-card { padding: 32px 20px; }
+        }
+
+        /* ── Step Panels ── */
+        .step-panel {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .step-panel.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step-panel > .section-label { margin-bottom: 4px; }
+        .step-panel > h2 { margin-bottom: 8px; }
+        .step-panel > .step-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 32px;
+        }
+
+        /* ── Form Elements ── */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-row.single { grid-template-columns: 1fr; }
+        .form-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+        @media (max-width: 640px) {
+            .form-row, .form-row.triple { grid-template-columns: 1fr; }
+        }
+
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+        .form-group label .req { color: var(--red); margin-left: 2px; }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--grey-light);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--white);
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px var(--teal-glow);
+        }
+        input.error, select.error, textarea.error {
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(232, 93, 93, 0.1);
+        }
+        textarea { resize: vertical; min-height: 100px; }
+        select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238896A8' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+
+        .error-msg {
+            font-size: 0.78rem;
+            color: var(--red);
+            margin-top: 4px;
+            display: none;
+        }
+        .error-msg.show { display: block; }
+
+        /* ── Radio/Checkbox Cards ── */
+        .option-grid {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .option-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+        .option-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .option-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+        @media (max-width: 640px) {
+            .option-grid.cols-3, .option-grid.cols-4 { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 400px) {
+            .option-grid.cols-3, .option-grid.cols-4, .option-grid.cols-2 { grid-template-columns: 1fr; }
+        }
+
+        .option-card {
+            position: relative;
+            cursor: pointer;
+        }
+        .option-card input { position: absolute; opacity: 0; pointer-events: none; }
+        .option-card .card-label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 16px;
+            border: 2px solid var(--grey-light);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .option-card input:checked + .card-label {
+            border-color: var(--teal);
+            background: var(--teal-glow);
+        }
+        .option-card .card-label:hover {
+            border-color: var(--teal);
+        }
+        .option-card .card-icon {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        .option-card .card-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 4px;
+        }
+        .option-card .card-desc {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            line-height: 1.4;
+        }
+
+        /* ── Checkbox List ── */
+        .checkbox-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 500px) {
+            .checkbox-list { grid-template-columns: 1fr; }
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .checkbox-item input[type="checkbox"] {
+            width: 20px; height: 20px;
+            accent-color: var(--teal);
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+        .checkbox-item span {
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        /* ── Persona Cards (larger) ── */
+        .persona-option {
+            position: relative;
+            cursor: pointer;
+        }
+        .persona-option input { position: absolute; opacity: 0; pointer-events: none; }
+        .persona-option .persona-label {
+            display: block;
+            padding: 24px 20px;
+            border: 2px solid var(--grey-light);
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .persona-option input:checked + .persona-label {
+            border-color: var(--teal);
+            background: var(--teal-glow);
+        }
+        .persona-option .persona-label:hover { border-color: var(--teal); }
+        .persona-option .persona-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+        .persona-option .persona-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        /* ── Range Slider ── */
+        .slider-group { margin-bottom: 24px; }
+        .slider-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .slider-group label .slider-val {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px; height: 28px;
+            background: var(--teal);
+            color: var(--white);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            appearance: none;
+            background: var(--grey-light);
+            border-radius: 3px;
+            outline: none;
+            border: none;
+            padding: 0;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px; height: 22px;
+            background: var(--teal);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(46, 196, 182, 0.3);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 22px; height: 22px;
+            background: var(--teal);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        .slider-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: var(--grey);
+            margin-top: 6px;
+        }
+
+        /* ── Yes/No Toggle ── */
+        .toggle-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid var(--grey-light);
+            margin-bottom: 0;
+        }
+        .toggle-row:last-child { border-bottom: none; }
+        .toggle-row span { font-size: 0.9rem; font-weight: 500; }
+        .toggle-btns { display: flex; gap: 8px; }
+        .toggle-btns button {
+            padding: 6px 20px;
+            border: 2px solid var(--grey-light);
+            border-radius: 8px;
+            background: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--grey);
+            transition: all 0.3s;
+        }
+        .toggle-btns button.selected {
+            border-color: var(--teal);
+            background: var(--teal-glow);
+            color: var(--teal);
+        }
+
+        /* ── Conditional Field ── */
+        .conditional { display: none; margin-top: 12px; margin-bottom: 16px; }
+        .conditional.show { display: block; }
+
+        /* ── Navigation Buttons ── */
+        .form-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--grey-light);
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-next {
+            background: var(--teal);
+            color: var(--white);
+            box-shadow: 0 4px 16px rgba(46, 196, 182, 0.3);
+            margin-left: auto;
+        }
+        .btn-next:hover { background: var(--teal-dark); transform: translateY(-1px); }
+        .btn-back {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--grey-light);
+        }
+        .btn-back:hover { border-color: var(--grey); color: var(--text); }
+        .btn-submit {
+            background: var(--navy);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(11, 29, 58, 0.25);
+            padding: 16px 40px;
+            font-size: 1.05rem;
+        }
+        .btn-submit:hover { background: var(--navy-light); transform: translateY(-1px); }
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ── Review Section ── */
+        .review-section {
+            margin-bottom: 28px;
+        }
+        .review-section .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .review-section h3 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--teal);
+        }
+        .review-edit {
+            font-size: 0.8rem;
+            color: var(--gold);
+            cursor: pointer;
+            font-weight: 600;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            transition: color 0.3s;
+        }
+        .review-edit:hover { color: var(--gold-light); }
+        .review-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 24px;
+        }
+        @media (max-width: 500px) {
+            .review-grid { grid-template-columns: 1fr; }
+        }
+        .review-item {
+            padding: 8px 0;
+        }
+        .review-item .review-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--grey);
+            font-weight: 600;
+        }
+        .review-item .review-value {
+            font-size: 0.95rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+        .review-divider {
+            height: 1px;
+            background: var(--grey-light);
+            margin: 4px 0 20px;
+        }
+
+        /* Consent */
+        .consent-box {
+            background: var(--off-white);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-top: 24px;
+        }
+        .consent-box input[type="checkbox"] {
+            width: 20px; height: 20px;
+            accent-color: var(--teal);
+            margin-top: 2px;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .consent-box p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: var(--text-light);
+        }
+
+        /* ── Success Screen ── */
+        .success-screen {
+            display: none;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .success-screen.active { display: block; }
+        .success-icon {
+            width: 80px; height: 80px;
+            background: var(--teal-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2.5rem;
+        }
+        .success-screen h2 { margin-bottom: 12px; }
+        .success-screen p { max-width: 480px; margin: 0 auto; }
+        .success-screen .btn { margin-top: 28px; }
+
+        /* ── Footer ── */
+        footer {
+            background: #070F1D;
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 32px 24px;
+            font-size: 0.8rem;
+        }
+        footer a { color: var(--teal); text-decoration: none; }
+
+        /* ── Field label section divider ── */
+        .field-section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--navy);
+            margin-top: 28px;
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--grey-light);
+        }
+        .field-section-title:first-child { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════ Header ══════════════ -->
+<div class="form-header">
+    <a href="index.html" class="back-link">&larr; Back to Home</a>
+    <h1>Charter Member <em>Intake</em></h1>
+    <p>Complete this form to reserve your seat in the founding pilot cohort.</p>
+</div>
+
+<!-- ══════════════ Progress Bar ══════════════ -->
+<div class="progress-container">
+    <div class="progress-steps">
+        <div class="progress-line"><div class="progress-line-fill" id="progressFill" style="width: 0%"></div></div>
+        <div class="progress-step active" data-step="1">
+            <div class="step-num">1</div>
+            <div class="step-text">Contact</div>
+        </div>
+        <div class="progress-step" data-step="2">
+            <div class="step-num">2</div>
+            <div class="step-text">Profile</div>
+        </div>
+        <div class="progress-step" data-step="3">
+            <div class="step-num">3</div>
+            <div class="step-text">Health</div>
+        </div>
+        <div class="progress-step" data-step="4">
+            <div class="step-num">4</div>
+            <div class="step-text">Lifestyle</div>
+        </div>
+        <div class="progress-step" data-step="5">
+            <div class="step-num">5</div>
+            <div class="step-text">Goals</div>
+        </div>
+        <div class="progress-step" data-step="6">
+            <div class="step-num">6</div>
+            <div class="step-text">Review</div>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════ Form ══════════════ -->
+<div class="form-wrapper">
+    <div class="form-card">
+        <form id="intakeForm" novalidate>
+
+            <!-- ═══ STEP 1: Contact ═══ -->
+            <div class="step-panel active" data-step="1">
+                <span class="section-label">Step 1 of 6</span>
+                <h2>Contact &amp; Basic Info</h2>
+                <p class="step-desc">Let's start with how we can reach you.</p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name <span class="req">*</span></label>
+                        <input type="text" name="firstName" required placeholder="John">
+                        <span class="error-msg">Please enter your first name</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name <span class="req">*</span></label>
+                        <input type="text" name="lastName" required placeholder="Smith">
+                        <span class="error-msg">Please enter your last name</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email <span class="req">*</span></label>
+                        <input type="email" name="email" required placeholder="john@company.com">
+                        <span class="error-msg">Please enter a valid email</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone <span class="req">*</span></label>
+                        <input type="tel" name="phone" required placeholder="(902) 555-1234">
+                        <span class="error-msg">Please enter your phone number</span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Company / Organization</label>
+                        <input type="text" name="company" placeholder="Acme Corp">
+                    </div>
+                    <div class="form-group">
+                        <label>Title / Role</label>
+                        <input type="text" name="title" placeholder="CEO, Founder, VP...">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>City <span class="req">*</span></label>
+                        <input type="text" name="city" required placeholder="Halifax">
+                        <span class="error-msg">Please enter your city</span>
+                    </div>
+                    <div class="form-group">
+                        <label>How did you hear about us?</label>
+                        <select name="referral">
+                            <option value="">Select one...</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="referral">Friend / Colleague Referral</option>
+                            <option value="email">Email</option>
+                            <option value="event">Event / Presentation</option>
+                            <option value="search">Online Search</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-nav">
+                    <div></div>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
+                </div>
+            </div>
+
+            <!-- ═══ STEP 2: Profile ═══ -->
+            <div class="step-panel" data-step="2">
+                <span class="section-label">Step 2 of 6</span>
+                <h2>Which leader are you?</h2>
+                <p class="step-desc">Help us understand where you are today so we can personalize your experience.</p>
+
+                <div class="field-section-title">Select the profile that best describes you</div>
+                <div class="option-grid" style="grid-template-columns: 1fr;">
+                    <label class="persona-option">
+                        <input type="radio" name="persona" value="high-performing" required>
+                        <div class="persona-label">
+                            <div class="persona-title">&#128640; High Performing</div>
+                            <div class="persona-desc">I want to protect and grow what I've built. Optimize longevity and expand capacity.</div>
+                        </div>
+                    </label>
+                    <label class="persona-option">
+                        <input type="radio" name="persona" value="hidden-risk">
+                        <div class="persona-label">
+                            <div class="persona-title">&#9888;&#65039; Hidden Risk</div>
+                            <div class="persona-desc">I feel fine, but something's off. Sleep issues, weight creep, energy dips, rising negativity.</div>
+                        </div>
+                    </label>
+                    <label class="persona-option">
+                        <input type="radio" name="persona" value="struggling">
+                        <div class="persona-label">
+                            <div class="persona-title">&#128680; Struggling</div>
+                            <div class="persona-desc">I'm symptomatic or diagnosed. Capacity is declining and I need a system to reverse course.</div>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="field-section-title">Primary motivation for joining</div>
+                <div class="checkbox-list">
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="prevent-disease"><span>Prevent future disease</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="more-energy"><span>More energy &amp; vitality</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="weight-management"><span>Weight management</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="mental-clarity"><span>Mental clarity &amp; focus</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="better-sleep"><span>Better sleep</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="stress-reduction"><span>Stress reduction</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="reverse-condition"><span>Reverse a condition</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="longevity"><span>Longevity &amp; healthspan</span></label>
+                </div>
+
+                <div class="form-row single">
+                    <div class="form-group">
+                        <label>What does success look like for you in 6 months?</label>
+                        <textarea name="successVision" placeholder="Describe what you'd like to be different about your health, energy, or life in 6 months..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-nav">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
+                </div>
+            </div>
+
+            <!-- ═══ STEP 3: Health Snapshot ═══ -->
+            <div class="step-panel" data-step="3">
+                <span class="section-label">Step 3 of 6</span>
+                <h2>Health Snapshot</h2>
+                <p class="step-desc">This information helps our team prepare your initial assessment. All data is strictly confidential.</p>
+
+                <div class="form-row triple">
+                    <div class="form-group">
+                        <label>Age <span class="req">*</span></label>
+                        <input type="number" name="age" required placeholder="45" min="18" max="100">
+                        <span class="error-msg">Please enter your age</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Height</label>
+                        <input type="text" name="height" placeholder="5'10&quot; or 178 cm">
+                    </div>
+                    <div class="form-group">
+                        <label>Weight</label>
+                        <input type="text" name="weight" placeholder="185 lbs or 84 kg">
+                    </div>
+                </div>
+
+                <div class="field-section-title">Known conditions or diagnoses</div>
+                <div class="checkbox-list">
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="type2-diabetes"><span>Type 2 Diabetes</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="hypertension"><span>Hypertension</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="high-cholesterol"><span>High Cholesterol</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="sleep-apnea"><span>Sleep Apnea</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="anxiety-depression"><span>Anxiety / Depression</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="heart-disease"><span>Heart Disease</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="thyroid"><span>Thyroid Condition</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="none"><span>None</span></label>
+                </div>
+                <div class="form-row single" style="margin-top: 4px;">
+                    <div class="form-group">
+                        <label>Other conditions (if any)</label>
+                        <input type="text" name="conditionsOther" placeholder="Describe any other conditions...">
+                    </div>
+                </div>
+
+                <div class="field-section-title">Family history of concern</div>
+                <div class="checkbox-list">
+                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="heart-disease"><span>Heart Disease</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="diabetes"><span>Diabetes</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="cancer"><span>Cancer</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="stroke"><span>Stroke</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="hypertension"><span>Hypertension</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="none"><span>None / Unknown</span></label>
+                </div>
+
+                <div class="form-row single">
+                    <div class="form-group">
+                        <label>Current medications</label>
+                        <textarea name="medications" rows="3" placeholder="List any current medications, supplements, or treatments..."></textarea>
+                    </div>
+                </div>
+
+                <div class="field-section-title">Do you have a current physician?</div>
+                <div class="toggle-row" style="border-bottom: none;">
+                    <span>I have a family doctor / GP</span>
+                    <div class="toggle-btns">
+                        <button type="button" onclick="toggleSelect(this, 'hasPhysician', 'yes')" data-group="hasPhysician">Yes</button>
+                        <button type="button" onclick="toggleSelect(this, 'hasPhysician', 'no')" data-group="hasPhysician">No</button>
+                    </div>
+                </div>
+                <input type="hidden" name="hasPhysician" value="">
+                <div class="conditional" id="physicianField">
+                    <div class="form-group">
+                        <label>Physician's Name</label>
+                        <input type="text" name="physicianName" placeholder="Dr. Jane Smith">
+                    </div>
+                </div>
+
+                <div class="form-nav">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
+                </div>
+            </div>
+
+            <!-- ═══ STEP 4: Lifestyle ═══ -->
+            <div class="step-panel" data-step="4">
+                <span class="section-label">Step 4 of 6</span>
+                <h2>Lifestyle &amp; Habits</h2>
+                <p class="step-desc">Understanding your current habits helps us build a plan around your real life.</p>
+
+                <div class="field-section-title">Exercise</div>
+                <div class="option-grid cols-4">
+                    <label class="option-card">
+                        <input type="radio" name="exercise" value="none">
+                        <div class="card-label">
+                            <span class="card-icon">&#128716;</span>
+                            <span class="card-title">Rarely</span>
+                            <span class="card-desc">0 times/week</span>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="exercise" value="light">
+                        <div class="card-label">
+                            <span class="card-icon">&#128694;</span>
+                            <span class="card-title">Light</span>
+                            <span class="card-desc">1&ndash;2 times/week</span>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="exercise" value="moderate">
+                        <div class="card-label">
+                            <span class="card-icon">&#127939;</span>
+                            <span class="card-title">Moderate</span>
+                            <span class="card-desc">3&ndash;4 times/week</span>
+                        </div>
+                    </label>
+                    <label class="option-card">
+                        <input type="radio" name="exercise" value="active">
+                        <div class="card-label">
+                            <span class="card-icon">&#127947;&#65039;</span>
+                            <span class="card-title">Active</span>
+                            <span class="card-desc">5+ times/week</span>
+                        </div>
+                    </label>
+                </div>
+
+                <div class="field-section-title">Sleep</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Sleep quality</label>
+                        <select name="sleepQuality">
+                            <option value="">Select...</option>
+                            <option value="poor">Poor — I struggle most nights</option>
+                            <option value="fair">Fair — Inconsistent or light sleep</option>
+                            <option value="good">Good — Generally restful</option>
+                            <option value="excellent">Excellent — Deep, consistent sleep</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Average hours per night</label>
+                        <select name="sleepHours">
+                            <option value="">Select...</option>
+                            <option value="<5">Less than 5 hours</option>
+                            <option value="5-6">5–6 hours</option>
+                            <option value="6-7">6–7 hours</option>
+                            <option value="7-8">7–8 hours</option>
+                            <option value="8+">8+ hours</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="field-section-title">Substances &amp; Nutrition</div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Alcohol consumption</label>
+                        <select name="alcohol">
+                            <option value="">Select...</option>
+                            <option value="none">None</option>
+                            <option value="occasional">Occasional (1–3 drinks/week)</option>
+                            <option value="moderate">Moderate (4–7 drinks/week)</option>
+                            <option value="heavy">Heavy (8+ drinks/week)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Nutrition self-rating</label>
+                        <select name="nutrition">
+                            <option value="">Select...</option>
+                            <option value="poor">Poor — Mostly convenience food</option>
+                            <option value="fair">Fair — Could be much better</option>
+                            <option value="good">Good — Mostly healthy choices</option>
+                            <option value="excellent">Excellent — Intentional &amp; consistent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="toggle-row">
+                    <span>Do you currently smoke or use nicotine?</span>
+                    <div class="toggle-btns">
+                        <button type="button" onclick="toggleSelect(this, 'smoking', 'yes')" data-group="smoking">Yes</button>
+                        <button type="button" onclick="toggleSelect(this, 'smoking', 'no')" data-group="smoking">No</button>
+                    </div>
+                </div>
+                <input type="hidden" name="smoking" value="">
+
+                <div class="slider-group" style="margin-top: 28px;">
+                    <label>
+                        Daily stress level
+                        <span class="slider-val" id="stressVal">5</span>
+                    </label>
+                    <input type="range" name="stress" min="1" max="10" value="5" oninput="document.getElementById('stressVal').textContent = this.value">
+                    <div class="slider-labels">
+                        <span>1 — Low</span>
+                        <span>10 — Extreme</span>
+                    </div>
+                </div>
+
+                <div class="form-nav">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
+                </div>
+            </div>
+
+            <!-- ═══ STEP 5: Goals ═══ -->
+            <div class="step-panel" data-step="5">
+                <span class="section-label">Step 5 of 6</span>
+                <h2>Goals &amp; Readiness</h2>
+                <p class="step-desc">Integration is the intervention. Let's make sure you're ready for the full program.</p>
+
+                <div class="field-section-title">Top health goals (select all that apply)</div>
+                <div class="checkbox-list">
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="weight-loss"><span>Weight loss / body composition</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="better-sleep"><span>Better sleep</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="more-energy"><span>More energy</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="reduce-meds"><span>Reduce medications</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="mental-clarity"><span>Mental clarity &amp; focus</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="stress-mgmt"><span>Stress management</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="disease-prevention"><span>Disease prevention</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="longevity"><span>Longevity &amp; healthspan</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="fitness"><span>Fitness &amp; strength</span></label>
+                    <label class="checkbox-item"><input type="checkbox" name="goals" value="relationships"><span>Better relationships &amp; presence</span></label>
+                </div>
+
+                <div class="form-row single">
+                    <div class="form-group">
+                        <label>What's your biggest obstacle to making lasting change?</label>
+                        <textarea name="obstacle" placeholder="Time, travel, stress, knowledge gaps, accountability, motivation..."></textarea>
+                    </div>
+                </div>
+
+                <div class="slider-group">
+                    <label>
+                        Commitment level to the full program
+                        <span class="slider-val" id="commitVal">7</span>
+                    </label>
+                    <input type="range" name="commitment" min="1" max="10" value="7" oninput="document.getElementById('commitVal').textContent = this.value">
+                    <div class="slider-labels">
+                        <span>1 — Just curious</span>
+                        <span>10 — All in</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Preferred start timeframe</label>
+                        <select name="timeframe">
+                            <option value="">Select...</option>
+                            <option value="asap">As soon as possible</option>
+                            <option value="1-month">Within 1 month</option>
+                            <option value="3-months">Within 3 months</option>
+                            <option value="exploring">Just exploring for now</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Any scheduling constraints?</label>
+                        <input type="text" name="scheduling" placeholder="Travel schedule, busy seasons...">
+                    </div>
+                </div>
+
+                <div class="form-row single">
+                    <div class="form-group">
+                        <label>Anything else you'd like us to know?</label>
+                        <textarea name="additionalNotes" rows="3" placeholder="Questions, concerns, or context that would help us serve you better..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-nav">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
+                    <button type="button" class="btn btn-next" onclick="nextStep()">Review Your Answers &rarr;</button>
+                </div>
+            </div>
+
+            <!-- ═══ STEP 6: Review ═══ -->
+            <div class="step-panel" data-step="6">
+                <span class="section-label">Step 6 of 6</span>
+                <h2>Review &amp; Submit</h2>
+                <p class="step-desc">Please review your information below. Click "Edit" on any section to make changes.</p>
+
+                <div id="reviewContent"></div>
+
+                <div class="consent-box">
+                    <input type="checkbox" id="consent" name="consent">
+                    <p>I understand this is a founding pilot program. I agree to provide honest feedback to help shape the program, and I consent to the Integrative Health team reviewing my health information to prepare my personalized assessment. All information is strictly confidential.</p>
+                </div>
+
+                <div class="form-nav" style="justify-content: center; gap: 16px; flex-wrap: wrap;">
+                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
+                    <button type="button" class="btn btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit Application &rarr;</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- ═══ Success Screen ═══ -->
+        <div class="success-screen" id="successScreen">
+            <div class="success-icon">&#10003;</div>
+            <h2>Application Received!</h2>
+            <p>Thank you for your interest in the Integrative Health founding pilot. Our team will review your application and reach out within 2&ndash;3 business days to schedule your introductory conversation.</p>
+            <a href="index.html" class="btn btn-next">Back to Home &rarr;</a>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════ Footer ══════════════ -->
+<footer>
+    <p>&copy; 2026 Calhan Consulting Group Inc. &middot; Proprietary &amp; Confidential</p>
+    <p style="margin-top:6px;">Integrative Health Program &middot; Halifax, Nova Scotia &middot; <a href="mailto:sean@calhan.ca">sean@calhan.ca</a></p>
+</footer>
+
+<!-- ══════════════ JavaScript ══════════════ -->
+<script>
+    let currentStep = 1;
+    const totalSteps = 6;
+
+    // ── Navigation ──
+    function nextStep() {
+        if (!validateStep(currentStep)) return;
+        if (currentStep < totalSteps) {
+            goToStep(currentStep + 1);
+        }
+    }
+
+    function prevStep() {
+        if (currentStep > 1) {
+            goToStep(currentStep - 1);
+        }
+    }
+
+    function goToStep(step) {
+        // Hide current
+        document.querySelector(`.step-panel[data-step="${currentStep}"]`).classList.remove('active');
+        // Show target
+        document.querySelector(`.step-panel[data-step="${step}"]`).classList.add('active');
+
+        // Update progress
+        document.querySelectorAll('.progress-step').forEach(el => {
+            const s = parseInt(el.dataset.step);
+            el.classList.remove('active', 'completed');
+            if (s === step) el.classList.add('active');
+            else if (s < step) el.classList.add('completed');
+        });
+
+        // Update progress line
+        const pct = ((step - 1) / (totalSteps - 1)) * 100;
+        document.getElementById('progressFill').style.width = pct + '%';
+
+        currentStep = step;
+
+        // Build review if step 6
+        if (step === 6) buildReview();
+
+        // Scroll to top of form
+        document.querySelector('.progress-container').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Allow clicking progress steps to navigate (only to completed steps)
+    document.querySelectorAll('.progress-step').forEach(el => {
+        el.addEventListener('click', () => {
+            const step = parseInt(el.dataset.step);
+            if (step < currentStep) goToStep(step);
+        });
+    });
+
+    // ── Validation ──
+    function validateStep(step) {
+        const panel = document.querySelector(`.step-panel[data-step="${step}"]`);
+        let valid = true;
+
+        // Clear previous errors
+        panel.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+        panel.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+
+        if (step === 1) {
+            const fields = ['firstName', 'lastName', 'email', 'phone', 'city'];
+            fields.forEach(name => {
+                const input = panel.querySelector(`[name="${name}"]`);
+                if (!input.value.trim()) {
+                    input.classList.add('error');
+                    input.nextElementSibling?.classList.add('show');
+                    valid = false;
+                }
+                if (name === 'email' && input.value && !/\S+@\S+\.\S+/.test(input.value)) {
+                    input.classList.add('error');
+                    input.nextElementSibling?.classList.add('show');
+                    valid = false;
+                }
+            });
+        }
+
+        if (step === 2) {
+            const persona = panel.querySelector('[name="persona"]:checked');
+            if (!persona) {
+                // Highlight persona cards
+                panel.querySelectorAll('.persona-option .persona-label').forEach(el => {
+                    el.style.borderColor = 'var(--red)';
+                    setTimeout(() => el.style.borderColor = '', 2000);
+                });
+                valid = false;
+            }
+        }
+
+        if (step === 3) {
+            const age = panel.querySelector('[name="age"]');
+            if (!age.value || age.value < 18 || age.value > 100) {
+                age.classList.add('error');
+                age.nextElementSibling?.classList.add('show');
+                valid = false;
+            }
+        }
+
+        // Shake on invalid
+        if (!valid) {
+            panel.style.animation = 'none';
+            panel.offsetHeight; // trigger reflow
+            panel.style.animation = 'shake 0.4s ease';
+        }
+
+        return valid;
+    }
+
+    // Shake keyframes
+    const shakeStyle = document.createElement('style');
+    shakeStyle.textContent = `@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }`;
+    document.head.appendChild(shakeStyle);
+
+    // Clear error on input
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+        el.addEventListener('input', () => {
+            el.classList.remove('error');
+            el.nextElementSibling?.classList.remove('show');
+        });
+    });
+
+    // ── Toggle Buttons ──
+    function toggleSelect(btn, name, value) {
+        const hidden = document.querySelector(`input[name="${name}"]`);
+        const group = btn.parentElement;
+
+        group.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        hidden.value = value;
+
+        // Show/hide conditional fields
+        if (name === 'hasPhysician') {
+            document.getElementById('physicianField').classList.toggle('show', value === 'yes');
+        }
+    }
+
+    // ── Consent checkbox ──
+    document.getElementById('consent').addEventListener('change', function() {
+        document.getElementById('submitBtn').disabled = !this.checked;
+    });
+
+    // ── Build Review ──
+    function buildReview() {
+        const form = document.getElementById('intakeForm');
+        const data = new FormData(form);
+
+        function getVal(name) { return data.get(name) || '—'; }
+        function getChecked(name) {
+            const checks = [];
+            form.querySelectorAll(`[name="${name}"]:checked`).forEach(c => {
+                checks.push(c.parentElement.querySelector('span')?.textContent || c.value);
+            });
+            return checks.length ? checks.join(', ') : '—';
+        }
+        function getRadioLabel(name) {
+            const checked = form.querySelector(`[name="${name}"]:checked`);
+            if (!checked) return '—';
+            const label = checked.closest('label') || checked.closest('.persona-option');
+            const title = label?.querySelector('.persona-title, .card-title');
+            return title ? title.textContent.replace(/[^\w\s\-–]/g, '').trim() : checked.value;
+        }
+        function getSelectLabel(name) {
+            const select = form.querySelector(`[name="${name}"]`);
+            return select && select.selectedIndex > 0 ? select.options[select.selectedIndex].text : '—';
+        }
+
+        const referralMap = { linkedin: 'LinkedIn', referral: 'Friend / Colleague', email: 'Email', event: 'Event / Presentation', search: 'Online Search', other: 'Other' };
+        const exerciseMap = { none: 'Rarely (0/week)', light: 'Light (1–2/week)', moderate: 'Moderate (3–4/week)', active: 'Active (5+/week)' };
+        const timeframeMap = { asap: 'As soon as possible', '1-month': 'Within 1 month', '3-months': 'Within 3 months', exploring: 'Just exploring' };
+
+        const html = `
+            <div class="review-section">
+                <div class="review-header">
+                    <h3>Contact &amp; Basic Info</h3>
+                    <button class="review-edit" onclick="goToStep(1)">Edit &rarr;</button>
+                </div>
+                <div class="review-divider"></div>
+                <div class="review-grid">
+                    <div class="review-item"><div class="review-label">Name</div><div class="review-value">${getVal('firstName')} ${getVal('lastName')}</div></div>
+                    <div class="review-item"><div class="review-label">Email</div><div class="review-value">${getVal('email')}</div></div>
+                    <div class="review-item"><div class="review-label">Phone</div><div class="review-value">${getVal('phone')}</div></div>
+                    <div class="review-item"><div class="review-label">City</div><div class="review-value">${getVal('city')}</div></div>
+                    <div class="review-item"><div class="review-label">Company</div><div class="review-value">${getVal('company')}</div></div>
+                    <div class="review-item"><div class="review-label">Title</div><div class="review-value">${getVal('title')}</div></div>
+                    <div class="review-item"><div class="review-label">Referral</div><div class="review-value">${referralMap[getVal('referral')] || '—'}</div></div>
+                </div>
+            </div>
+
+            <div class="review-section">
+                <div class="review-header">
+                    <h3>Leader Profile</h3>
+                    <button class="review-edit" onclick="goToStep(2)">Edit &rarr;</button>
+                </div>
+                <div class="review-divider"></div>
+                <div class="review-grid">
+                    <div class="review-item"><div class="review-label">Persona</div><div class="review-value">${getRadioLabel('persona')}</div></div>
+                    <div class="review-item"><div class="review-label">Motivations</div><div class="review-value">${getChecked('motivation')}</div></div>
+                </div>
+                <div class="review-item" style="padding-top: 8px;"><div class="review-label">6-Month Vision</div><div class="review-value">${getVal('successVision')}</div></div>
+            </div>
+
+            <div class="review-section">
+                <div class="review-header">
+                    <h3>Health Snapshot</h3>
+                    <button class="review-edit" onclick="goToStep(3)">Edit &rarr;</button>
+                </div>
+                <div class="review-divider"></div>
+                <div class="review-grid">
+                    <div class="review-item"><div class="review-label">Age</div><div class="review-value">${getVal('age')}</div></div>
+                    <div class="review-item"><div class="review-label">Height</div><div class="review-value">${getVal('height')}</div></div>
+                    <div class="review-item"><div class="review-label">Weight</div><div class="review-value">${getVal('weight')}</div></div>
+                    <div class="review-item"><div class="review-label">Physician</div><div class="review-value">${getVal('hasPhysician') === 'yes' ? 'Yes — ' + getVal('physicianName') : getVal('hasPhysician') === 'no' ? 'No' : '—'}</div></div>
+                </div>
+                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Conditions</div><div class="review-value">${getChecked('conditions')}${getVal('conditionsOther') !== '—' ? ' | ' + getVal('conditionsOther') : ''}</div></div>
+                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Family History</div><div class="review-value">${getChecked('familyHistory')}</div></div>
+                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Medications</div><div class="review-value">${getVal('medications')}</div></div>
+            </div>
+
+            <div class="review-section">
+                <div class="review-header">
+                    <h3>Lifestyle &amp; Habits</h3>
+                    <button class="review-edit" onclick="goToStep(4)">Edit &rarr;</button>
+                </div>
+                <div class="review-divider"></div>
+                <div class="review-grid">
+                    <div class="review-item"><div class="review-label">Exercise</div><div class="review-value">${exerciseMap[getRadioLabel('exercise')?.toLowerCase()] || getRadioLabel('exercise')}</div></div>
+                    <div class="review-item"><div class="review-label">Sleep Quality</div><div class="review-value">${getSelectLabel('sleepQuality')}</div></div>
+                    <div class="review-item"><div class="review-label">Sleep Hours</div><div class="review-value">${getSelectLabel('sleepHours')}</div></div>
+                    <div class="review-item"><div class="review-label">Alcohol</div><div class="review-value">${getSelectLabel('alcohol')}</div></div>
+                    <div class="review-item"><div class="review-label">Nutrition</div><div class="review-value">${getSelectLabel('nutrition')}</div></div>
+                    <div class="review-item"><div class="review-label">Smoking / Nicotine</div><div class="review-value">${getVal('smoking') === 'yes' ? 'Yes' : getVal('smoking') === 'no' ? 'No' : '—'}</div></div>
+                    <div class="review-item"><div class="review-label">Stress Level</div><div class="review-value">${getVal('stress')} / 10</div></div>
+                </div>
+            </div>
+
+            <div class="review-section">
+                <div class="review-header">
+                    <h3>Goals &amp; Readiness</h3>
+                    <button class="review-edit" onclick="goToStep(5)">Edit &rarr;</button>
+                </div>
+                <div class="review-divider"></div>
+                <div class="review-grid">
+                    <div class="review-item"><div class="review-label">Health Goals</div><div class="review-value">${getChecked('goals')}</div></div>
+                    <div class="review-item"><div class="review-label">Commitment</div><div class="review-value">${getVal('commitment')} / 10</div></div>
+                    <div class="review-item"><div class="review-label">Timeframe</div><div class="review-value">${timeframeMap[getVal('timeframe')] || '—'}</div></div>
+                    <div class="review-item"><div class="review-label">Scheduling</div><div class="review-value">${getVal('scheduling')}</div></div>
+                </div>
+                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Biggest Obstacle</div><div class="review-value">${getVal('obstacle')}</div></div>
+                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Additional Notes</div><div class="review-value">${getVal('additionalNotes')}</div></div>
+            </div>
+        `;
+
+        document.getElementById('reviewContent').innerHTML = html;
+    }
+
+    // ── Submit ──
+    function submitForm() {
+        const form = document.getElementById('intakeForm');
+        const data = new FormData(form);
+
+        // Build email body
+        let body = 'INTEGRATIVE HEALTH — CHARTER MEMBER APPLICATION\n\n';
+        for (const [key, value] of data.entries()) {
+            if (key === 'consent') continue;
+            body += `${key}: ${value}\n`;
+        }
+
+        // Also collect checkboxes
+        ['motivation', 'conditions', 'familyHistory', 'goals'].forEach(name => {
+            const checked = [];
+            form.querySelectorAll(`[name="${name}"]:checked`).forEach(c => checked.push(c.value));
+            body += `${name}: ${checked.join(', ')}\n`;
+        });
+
+        // For now, mailto approach (can be replaced with fetch to an API)
+        const mailtoLink = `mailto:sean@calhan.ca?subject=${encodeURIComponent('Charter Member Application — ' + data.get('firstName') + ' ' + data.get('lastName'))}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoLink;
+
+        // Show success
+        form.style.display = 'none';
+        document.getElementById('successScreen').classList.add('active');
+
+        // Scroll up
+        document.querySelector('.form-header').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
