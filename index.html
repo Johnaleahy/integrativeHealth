@@ -11,9 +11,9 @@
         :root {
             --navy: #0B1D3A;
             --navy-light: #122B52;
-            --teal: #B37458;
-            --teal-dark: #96604A;
-            --teal-glow: rgba(179, 116, 88, 0.15);
+            --teal: #2EC4B6;
+            --teal-dark: #1FA99C;
+            --teal-glow: rgba(46, 196, 182, 0.15);
             --gold: #D4A853;
             --gold-light: #E8C87A;
             --white: #FFFFFF;
@@ -79,12 +79,12 @@
         .btn-primary {
             background: var(--teal);
             color: var(--white);
-            box-shadow: 0 4px 20px rgba(179, 116, 88, 0.35);
+            box-shadow: 0 4px 20px rgba(46, 196, 182, 0.35);
         }
         .btn-primary:hover {
             background: var(--teal-dark);
             transform: translateY(-2px);
-            box-shadow: 0 6px 28px rgba(179, 116, 88, 0.45);
+            box-shadow: 0 6px 28px rgba(46, 196, 182, 0.45);
         }
         .btn-outline {
             background: transparent;
@@ -124,17 +124,13 @@
             align-items: center;
         }
         .nav-logo {
-            display: flex;
-            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
             text-decoration: none;
         }
-        .nav-logo img {
-            height: 200px;
-            width: auto;
-        }
-        nav.scrolled .nav-logo img {
-            height: 150px;
-        }
+        .nav-logo span { color: var(--teal); }
         .nav-links { display: flex; gap: 32px; align-items: center; }
         .nav-links a {
             color: rgba(255,255,255,0.8);
@@ -189,7 +185,10 @@
         .hero .container {
             position: relative;
             z-index: 2;
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
         }
         .hero-content h1 {
             color: var(--white);
@@ -204,35 +203,43 @@
             font-size: 1.15rem;
             margin-bottom: 2rem;
             max-width: 520px;
-            margin-left: auto;
-            margin-right: auto;
         }
-        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-
-        /* ── Hero Stat Pills ── */
-        .hero-stats {
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-visual {
             display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 2rem;
             justify-content: center;
-        }
-        .hero-stat {
-            display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 10px 20px;
-            border-radius: 50px;
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.12);
-            color: rgba(255,255,255,0.85);
-            font-size: 0.85rem;
-            font-weight: 500;
-            white-space: nowrap;
         }
-        .hero-stat .count {
-            color: var(--teal);
+        .hero-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 48px 40px;
+            backdrop-filter: blur(20px);
+            max-width: 420px;
+            width: 100%;
+        }
+        .hero-card .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 28px;
+            padding-bottom: 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .hero-card .stat-row:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
+        .stat-item .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
             font-weight: 700;
+            color: var(--teal);
+            display: block;
+        }
+        .stat-item .stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* ── Problem Section ── */
@@ -412,7 +419,7 @@
             color: var(--grey);
         }
         .compare-card.new .compare-badge {
-            background: rgba(179, 116, 88, 0.2);
+            background: rgba(46, 196, 182, 0.2);
             color: var(--teal);
         }
         .compare-list {
@@ -567,7 +574,7 @@
             transition: all 0.3s;
         }
         .saboteur-tag:hover {
-            background: rgba(179, 116, 88, 0.1);
+            background: rgba(46, 196, 182, 0.1);
             border-color: var(--teal);
         }
         .saboteur-tag .tag-name {
@@ -674,7 +681,7 @@
             margin-bottom: 20px;
         }
         .price-card.featured .price-badge {
-            background: rgba(179, 116, 88, 0.2);
+            background: rgba(46, 196, 182, 0.2);
             color: var(--teal);
         }
         .price-card.compare .price-badge {
@@ -721,8 +728,8 @@
             display: inline-block;
             margin-top: 16px;
             padding: 10px 24px;
-            background: rgba(179, 116, 88, 0.1);
-            border: 1px solid rgba(179, 116, 88, 0.3);
+            background: rgba(46, 196, 182, 0.1);
+            border: 1px solid rgba(46, 196, 182, 0.3);
             border-radius: 50px;
             font-size: 0.85rem;
             font-weight: 600;
@@ -773,7 +780,10 @@
 
         /* ── Responsive ── */
         @media (max-width: 1024px) {
-            .hero .container { text-align: center; }
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-content p { margin-left: auto; margin-right: auto; }
+            .hero-buttons { justify-content: center; }
+            .hero-visual { display: none; }
             .team-grid { grid-template-columns: repeat(3, 1fr); }
             .timeline::before { display: none; }
             .timeline-steps { grid-template-columns: repeat(3, 1fr); }
@@ -782,21 +792,8 @@
         }
         @media (max-width: 768px) {
             section { padding: 72px 0; }
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0; right: 0;
-                background: rgba(11, 29, 58, 0.97);
-                backdrop-filter: blur(20px);
-                flex-direction: column;
-                padding: 24px;
-                gap: 16px;
-                text-align: center;
-            }
-            .nav-links.show { display: flex; }
+            .nav-links { display: none; }
             .mobile-toggle { display: block; }
-            .hero { padding-top: 120px; }
             .problem-grid,
             .compare-grid,
             .mf-grid,
@@ -813,7 +810,7 @@
 <!-- ══════════════ Navigation ══════════════ -->
 <nav id="navbar">
     <div class="container">
-        <a href="#" class="nav-logo"><img src="images/IHILogov2.png" alt="Integrative Health Institute"></a>
+        <a href="#" class="nav-logo">Integrative <span>Health</span></a>
         <div class="nav-links">
             <a href="#problem">The Problem</a>
             <a href="#philosophy">Philosophy</a>
@@ -833,18 +830,42 @@
 <section class="hero">
     <div class="container">
         <div class="hero-content fade-up">
-            <h1>Start <em>Thriving.</em></h1>
+            <span class="section-label">Halifax Founding Pilot</span>
+            <h1>Stop functioning.<br>Start <em>thriving.</em></h1>
             <p>A 6-month integrative health program for business leaders combining executive medical assessment, mental fitness coaching, and measurable risk reversal. Not a checkup. Not a report. A coached, life-changing reset.</p>
             <div class="hero-buttons">
                 <a href="intake.html" class="btn btn-primary">Reserve Your Seat &rarr;</a>
                 <a href="#program" class="btn btn-outline">See the Program</a>
             </div>
-            <div class="hero-stats fade-up">
-                <div class="hero-stat"><span class="count" data-target="6">0</span> Month Program</div>
-                <div class="hero-stat"><span class="count" data-target="10">0</span> Seats Only</div>
-                <div class="hero-stat"><span class="count" data-target="5">0</span> Expert Team</div>
-                <div class="hero-stat"><span class="count" data-target="1">0</span> Integrated Plan</div>
-                <div class="hero-stat"><span class="count" data-target="100">0</span>% Private &amp; Local</div>
+        </div>
+        <div class="hero-visual fade-up">
+            <div class="hero-card">
+                <div class="stat-row">
+                    <div class="stat-item">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Month Program</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Seats Only</span>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Expert Team</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">Integrated Plan</span>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-item" style="text-align:center; width:100%;">
+                        <span class="stat-number" style="color: var(--gold);">100%</span>
+                        <span class="stat-label">Private &amp; Local</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1218,33 +1239,6 @@
             dots[active].classList.add('active');
         }, 3000);
     })();
-
-    // Count-up animation for hero stats
-    const countObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.querySelectorAll('.count').forEach(counter => {
-                    const target = +counter.dataset.target;
-                    const duration = 1500;
-                    const start = performance.now();
-                    const step = (now) => {
-                        const elapsed = now - start;
-                        const progress = Math.min(elapsed / duration, 1);
-                        const eased = 1 - Math.pow(1 - progress, 3);
-                        counter.textContent = Math.round(target * eased);
-                        if (progress < 1) {
-                            requestAnimationFrame(step);
-                        }
-                    };
-                    requestAnimationFrame(step);
-                });
-                countObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.2 });
-
-    const heroStats = document.querySelector('.hero-stats');
-    if (heroStats) countObserver.observe(heroStats);
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
