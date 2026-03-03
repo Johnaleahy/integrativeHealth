@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charter Member Intake — Integrative Health Institute</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Master Client Intake — Integrative Health Institute</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"/>
     <style>
         :root {
             --navy: #0B1D3A;
@@ -23,8 +23,8 @@
             --text: #1A2A40;
             --text-light: #5A6B80;
             --radius: 16px;
-            --shadow: 0 4px 24px rgba(11, 29, 58, 0.08);
-            --shadow-lg: 0 12px 48px rgba(11, 29, 58, 0.12);
+            --shadow: 0 4px 24px rgba(11,29,58,0.08);
+            --shadow-lg: 0 12px 48px rgba(11,29,58,0.12);
             --red: #E85D5D;
         }
 
@@ -40,15 +40,14 @@
             min-height: 100vh;
         }
 
-        h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
+        h1,h2,h3,h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; line-height: 1.2; }
         h1 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
-        h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); margin-bottom: 0.5rem; }
-        h3 { font-size: 1.15rem; }
+        h2 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); margin-bottom: 0.5rem; }
 
         .section-label {
             display: inline-block;
             font-family: 'Inter', sans-serif;
-            font-size: 0.7rem;
+            font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -59,7 +58,7 @@
         /* ── Header ── */
         .form-header {
             background: linear-gradient(160deg, var(--navy) 0%, #0E2548 50%, #132F5E 100%);
-            padding: 48px 24px 60px;
+            padding: 44px 24px 56px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -73,105 +72,109 @@
             border-radius: 50%;
             pointer-events: none;
         }
-        .form-header .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 20px;
-            transition: color 0.3s;
-            position: relative;
-            z-index: 2;
+        .form-header a.back-link {
+            display: inline-flex; align-items: center; gap: 6px;
+            color: rgba(255,255,255,0.6); text-decoration: none;
+            font-size: 0.85rem; font-weight: 500; margin-bottom: 20px;
+            transition: color 0.3s; position: relative; z-index: 2;
         }
-        .form-header .back-link:hover { color: var(--teal); }
+        .form-header a.back-link:hover { color: var(--teal); }
         .form-header h1 { color: var(--white); margin-bottom: 8px; position: relative; z-index: 2; }
         .form-header h1 em { font-style: normal; color: var(--teal); }
-        .form-header p { color: rgba(255,255,255,0.6); font-size: 1rem; position: relative; z-index: 2; }
+        .form-header p { color: rgba(255,255,255,0.6); font-size: 0.95rem; position: relative; z-index: 2; }
 
-        /* ── Progress Bar ── */
+        /* ── Scale Legend ── */
+        .scale-legend {
+            background: var(--navy);
+            padding: 14px 24px;
+            text-align: center;
+        }
+        .scale-legend p {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.55);
+            letter-spacing: 0.3px;
+        }
+        .scale-legend span { color: var(--gold); font-weight: 600; }
+
+        /* ── Progress ── */
         .progress-container {
             background: var(--white);
             border-bottom: 1px solid var(--grey-light);
-            padding: 24px 24px 0;
+            padding: 20px 16px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 12px rgba(11, 29, 58, 0.06);
+            box-shadow: 0 2px 12px rgba(11,29,58,0.06);
+        }
+        .progress-bar-row {
+            max-width: 820px;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .progress-bar-track {
+            flex: 1;
+            height: 6px;
+            background: var(--grey-light);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--navy), var(--teal));
+            border-radius: 99px;
+            transition: width 0.5s ease;
+        }
+        .progress-text {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--grey);
+            white-space: nowrap;
+            min-width: 70px;
+            text-align: right;
         }
         .progress-steps {
             display: flex;
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
-            position: relative;
+            overflow-x: auto;
+            scrollbar-width: none;
         }
+        .progress-steps::-webkit-scrollbar { display: none; }
         .progress-step {
-            flex: 1;
+            flex: 0 0 auto;
+            min-width: 60px;
             text-align: center;
-            padding-bottom: 20px;
-            position: relative;
+            padding-bottom: 14px;
+            padding-left: 4px;
+            padding-right: 4px;
             cursor: pointer;
         }
         .progress-step .step-num {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 32px; height: 32px;
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 28px; height: 28px;
             border-radius: 50%;
-            font-size: 0.8rem;
-            font-weight: 700;
-            background: var(--grey-light);
-            color: var(--grey);
-            margin-bottom: 6px;
-            transition: all 0.4s ease;
-            position: relative;
-            z-index: 2;
+            font-size: 0.75rem; font-weight: 700;
+            background: var(--grey-light); color: var(--grey);
+            margin-bottom: 4px;
+            transition: all 0.3s ease;
         }
-        .progress-step.active .step-num {
-            background: var(--teal);
-            color: var(--white);
-            box-shadow: 0 3px 12px rgba(46, 196, 182, 0.35);
-        }
-        .progress-step.completed .step-num {
-            background: var(--navy);
-            color: var(--white);
-        }
-        .progress-step .step-text {
-            font-size: 0.7rem;
-            font-weight: 600;
-            color: var(--grey);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .progress-step.active .step-num  { background: var(--teal); color: var(--white); box-shadow: 0 2px 10px rgba(46,196,182,0.35); }
+        .progress-step.done   .step-num  { background: var(--navy); color: var(--white); }
+        .progress-step .step-lbl {
+            font-size: 0.62rem; font-weight: 600;
+            color: var(--grey); text-transform: uppercase; letter-spacing: 0.4px;
             transition: color 0.3s;
         }
-        .progress-step.active .step-text { color: var(--teal); }
-        .progress-step.completed .step-text { color: var(--navy); }
+        .progress-step.active .step-lbl { color: var(--teal); }
+        .progress-step.done   .step-lbl { color: var(--navy); }
 
-        /* Progress line */
-        .progress-line {
-            position: absolute;
-            top: 16px;
-            left: 8%;
-            right: 8%;
-            height: 3px;
-            background: var(--grey-light);
-            border-radius: 2px;
-            z-index: 1;
-        }
-        .progress-line-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--navy), var(--teal));
-            border-radius: 2px;
-            transition: width 0.5s ease;
-        }
-
-        /* ── Form Container ── */
+        /* ── Form Wrapper ── */
         .form-wrapper {
             max-width: 720px;
-            margin: -28px auto 60px;
-            padding: 0 24px;
+            margin: -24px auto 80px;
+            padding: 0 20px;
             position: relative;
             z-index: 10;
         }
@@ -179,1230 +182,700 @@
             background: var(--white);
             border-radius: var(--radius);
             box-shadow: var(--shadow-lg);
-            padding: 48px 44px;
-            min-height: 400px;
+            padding: 44px 40px;
         }
-        @media (max-width: 640px) {
-            .form-card { padding: 32px 20px; }
-        }
+        @media (max-width: 600px) { .form-card { padding: 28px 18px; } }
 
         /* ── Step Panels ── */
-        .step-panel {
-            display: none;
-            animation: fadeIn 0.4s ease;
-        }
+        .step-panel { display: none; animation: fadeUp 0.35s ease; }
         .step-panel.active { display: block; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-
         .step-panel > .section-label { margin-bottom: 4px; }
-        .step-panel > h2 { margin-bottom: 8px; }
-        .step-panel > .step-desc {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 32px;
-        }
+        .step-panel > h2 { margin-bottom: 6px; }
+        .step-desc { color: var(--text-light); font-size: 0.92rem; margin-bottom: 32px; }
 
         /* ── Form Elements ── */
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
+            gap: 18px;
+            margin-bottom: 18px;
         }
-        .form-row.single { grid-template-columns: 1fr; }
-        .form-row.triple { grid-template-columns: 1fr 1fr 1fr; }
-        @media (max-width: 640px) {
+        .form-row.single  { grid-template-columns: 1fr; }
+        .form-row.triple  { grid-template-columns: 1fr 1fr 1fr; }
+        @media (max-width: 580px) {
             .form-row, .form-row.triple { grid-template-columns: 1fr; }
         }
-
         .form-group { display: flex; flex-direction: column; }
         .form-group label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 6px;
+            font-size: 0.83rem; font-weight: 600; color: var(--text); margin-bottom: 6px;
         }
-        .form-group label .req { color: var(--red); margin-left: 2px; }
-
         input[type="text"],
-        input[type="email"],
-        input[type="tel"],
         input[type="number"],
-        select,
+        input[type="date"],
         textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--grey-light);
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            color: var(--text);
-            background: var(--white);
-            transition: all 0.3s ease;
-            outline: none;
+            width: 100%; padding: 11px 15px;
+            border: 2px solid var(--grey-light); border-radius: 10px;
+            font-family: 'Inter', sans-serif; font-size: 0.93rem; color: var(--text);
+            background: var(--white); transition: border-color 0.25s, box-shadow 0.25s; outline: none;
         }
-        input:focus, select:focus, textarea:focus {
+        input:focus, textarea:focus {
             border-color: var(--teal);
             box-shadow: 0 0 0 3px var(--teal-glow);
         }
-        input.error, select.error, textarea.error {
-            border-color: var(--red);
-            box-shadow: 0 0 0 3px rgba(232, 93, 93, 0.1);
-        }
-        textarea { resize: vertical; min-height: 100px; }
-        select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238896A8' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+        textarea { resize: vertical; min-height: 90px; }
 
-        .error-msg {
-            font-size: 0.78rem;
-            color: var(--red);
-            margin-top: 4px;
-            display: none;
+        /* ── Pill Options ── */
+        .field-label {
+            font-size: 0.83rem; font-weight: 600; color: var(--text);
+            margin-bottom: 10px; display: block;
         }
-        .error-msg.show { display: block; }
+        .pills {
+            display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;
+        }
+        .pill { position: relative; }
+        .pill input { position: absolute; opacity: 0; pointer-events: none; }
+        .pill span {
+            display: block; padding: 7px 16px;
+            border: 2px solid var(--grey-light); border-radius: 99px;
+            font-size: 0.83rem; font-weight: 500; color: var(--text-light);
+            cursor: pointer; transition: all 0.2s ease; user-select: none;
+            white-space: nowrap;
+        }
+        .pill input:checked + span {
+            background: var(--teal); border-color: var(--teal); color: var(--white);
+        }
+        .pill span:hover { border-color: var(--teal); color: var(--teal); }
 
-        /* ── Radio/Checkbox Cards ── */
-        .option-grid {
-            display: grid;
-            gap: 12px;
-            margin-bottom: 20px;
+        /* ── Toggle (Y/N) ── */
+        .toggle-group { display: inline-flex; margin-bottom: 20px; border-radius: 10px; overflow: hidden; border: 2px solid var(--grey-light); }
+        .toggle-group .toggle { position: relative; }
+        .toggle-group .toggle input { position: absolute; opacity: 0; pointer-events: none; }
+        .toggle-group .toggle span {
+            display: block; padding: 9px 22px;
+            font-size: 0.83rem; font-weight: 600;
+            color: var(--text-light); cursor: pointer;
+            transition: all 0.2s ease; background: var(--white);
         }
-        .option-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-        .option-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
-        .option-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-        @media (max-width: 640px) {
-            .option-grid.cols-3, .option-grid.cols-4 { grid-template-columns: 1fr 1fr; }
-        }
-        @media (max-width: 400px) {
-            .option-grid.cols-3, .option-grid.cols-4, .option-grid.cols-2 { grid-template-columns: 1fr; }
-        }
+        .toggle-group .toggle + .toggle span { border-left: 2px solid var(--grey-light); }
+        .toggle-group .toggle input:checked + span { background: var(--teal); color: var(--white); }
 
-        .option-card {
-            position: relative;
-            cursor: pointer;
+        .field-row {
+            display: flex; align-items: center; gap: 16px;
+            margin-bottom: 18px; flex-wrap: wrap;
         }
-        .option-card input { position: absolute; opacity: 0; pointer-events: none; }
-        .option-card .card-label {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px 16px;
+        .field-row .field-label { margin-bottom: 0; white-space: nowrap; min-width: 200px; }
+
+        /* ── 1–10 Scale ── */
+        .scale-wrap { margin-bottom: 22px; }
+        .scale-row { display: flex; gap: 5px; flex-wrap: wrap; }
+        .scale-btn { position: relative; }
+        .scale-btn input { position: absolute; opacity: 0; pointer-events: none; }
+        .scale-btn span {
+            display: flex; align-items: center; justify-content: center;
+            width: 40px; height: 40px; border-radius: 8px;
             border: 2px solid var(--grey-light);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            font-size: 0.85rem; font-weight: 600; color: var(--text-light);
+            cursor: pointer; transition: all 0.18s ease;
         }
-        .option-card input:checked + .card-label {
-            border-color: var(--teal);
-            background: var(--teal-glow);
-        }
-        .option-card .card-label:hover {
-            border-color: var(--teal);
-        }
-        .option-card .card-icon {
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-        .option-card .card-title {
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text);
-            margin-bottom: 4px;
-        }
-        .option-card .card-desc {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            line-height: 1.4;
+        .scale-btn input:checked + span { background: var(--teal); border-color: var(--teal); color: var(--white); }
+        .scale-btn span:hover { border-color: var(--teal); color: var(--teal); }
+        .scale-labels {
+            display: flex; justify-content: space-between;
+            font-size: 0.68rem; color: var(--grey);
+            margin-top: 4px; padding: 0 2px;
         }
 
-        /* ── Checkbox List ── */
-        .checkbox-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        @media (max-width: 500px) {
-            .checkbox-list { grid-template-columns: 1fr; }
-        }
-        .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-        }
-        .checkbox-item input[type="checkbox"] {
-            width: 20px; height: 20px;
-            accent-color: var(--teal);
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .checkbox-item span {
-            font-size: 0.9rem;
-            color: var(--text);
-        }
+        /* ── Divider ── */
+        .form-divider { border: none; border-top: 1px solid var(--grey-light); margin: 24px 0; }
 
-        /* ── Persona Cards (larger) ── */
-        .persona-option {
-            position: relative;
-            cursor: pointer;
-        }
-        .persona-option input { position: absolute; opacity: 0; pointer-events: none; }
-        .persona-option .persona-label {
-            display: block;
-            padding: 24px 20px;
-            border: 2px solid var(--grey-light);
-            border-radius: 14px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .persona-option input:checked + .persona-label {
-            border-color: var(--teal);
-            background: var(--teal-glow);
-        }
-        .persona-option .persona-label:hover { border-color: var(--teal); }
-        .persona-option .persona-title {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 4px;
-            color: var(--text);
-        }
-        .persona-option .persona-desc {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
-
-        /* ── Range Slider ── */
-        .slider-group { margin-bottom: 24px; }
-        .slider-group label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--text);
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .slider-group label .slider-val {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px; height: 28px;
-            background: var(--teal);
-            color: var(--white);
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-        input[type="range"] {
-            width: 100%;
-            height: 6px;
-            -webkit-appearance: none;
-            appearance: none;
-            background: var(--grey-light);
-            border-radius: 3px;
-            outline: none;
-            border: none;
-            padding: 0;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 22px; height: 22px;
-            background: var(--teal);
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(46, 196, 182, 0.3);
-        }
-        input[type="range"]::-moz-range-thumb {
-            width: 22px; height: 22px;
-            background: var(--teal);
-            border-radius: 50%;
-            cursor: pointer;
-            border: none;
-        }
-        .slider-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.72rem;
-            color: var(--grey);
-            margin-top: 6px;
-        }
-
-        /* ── Yes/No Toggle ── */
-        .toggle-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 0;
-            border-bottom: 1px solid var(--grey-light);
-            margin-bottom: 0;
-        }
-        .toggle-row:last-child { border-bottom: none; }
-        .toggle-row span { font-size: 0.9rem; font-weight: 500; }
-        .toggle-btns { display: flex; gap: 8px; }
-        .toggle-btns button {
-            padding: 6px 20px;
-            border: 2px solid var(--grey-light);
-            border-radius: 8px;
-            background: var(--white);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--grey);
-            transition: all 0.3s;
-        }
-        .toggle-btns button.selected {
-            border-color: var(--teal);
-            background: var(--teal-glow);
-            color: var(--teal);
-        }
-
-        /* ── Conditional Field ── */
-        .conditional { display: none; margin-top: 12px; margin-bottom: 16px; }
-        .conditional.show { display: block; }
-
-        /* ── Navigation Buttons ── */
+        /* ── Navigation ── */
         .form-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 40px;
-            padding-top: 24px;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 40px; padding-top: 28px;
             border-top: 1px solid var(--grey-light);
         }
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 13px 28px; border-radius: 10px;
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; border: none; transition: all 0.25s ease;
         }
-        .btn-next {
-            background: var(--teal);
+        .btn-primary {
+            background: linear-gradient(135deg, var(--teal), var(--teal-dark));
             color: var(--white);
-            box-shadow: 0 4px 16px rgba(46, 196, 182, 0.3);
-            margin-left: auto;
+            box-shadow: 0 4px 16px rgba(46,196,182,0.3);
         }
-        .btn-next:hover { background: var(--teal-dark); transform: translateY(-1px); }
-        .btn-back {
-            background: transparent;
-            color: var(--text-light);
+        .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(46,196,182,0.4); }
+        .btn-ghost {
+            background: transparent; color: var(--text-light);
             border: 2px solid var(--grey-light);
         }
-        .btn-back:hover { border-color: var(--grey); color: var(--text); }
+        .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+        .btn[disabled] { opacity: 0.35; pointer-events: none; }
         .btn-submit {
-            background: var(--navy);
-            color: var(--white);
-            box-shadow: 0 4px 20px rgba(11, 29, 58, 0.25);
-            padding: 16px 40px;
-            font-size: 1.05rem;
-        }
-        .btn-submit:hover { background: var(--navy-light); transform: translateY(-1px); }
-        .btn-submit:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        /* ── Review Section ── */
-        .review-section {
-            margin-bottom: 28px;
-        }
-        .review-section .review-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        .review-section h3 {
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--teal);
-        }
-        .review-edit {
-            font-size: 0.8rem;
-            color: var(--gold);
-            cursor: pointer;
-            font-weight: 600;
-            background: none;
-            border: none;
-            font-family: 'Inter', sans-serif;
-            transition: color 0.3s;
-        }
-        .review-edit:hover { color: var(--gold-light); }
-        .review-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px 24px;
-        }
-        @media (max-width: 500px) {
-            .review-grid { grid-template-columns: 1fr; }
-        }
-        .review-item {
-            padding: 8px 0;
-        }
-        .review-item .review-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--grey);
-            font-weight: 600;
-        }
-        .review-item .review-value {
-            font-size: 0.95rem;
-            color: var(--text);
-            font-weight: 500;
-        }
-        .review-divider {
-            height: 1px;
-            background: var(--grey-light);
-            margin: 4px 0 20px;
-        }
-
-        /* Consent */
-        .consent-box {
-            background: var(--off-white);
-            border-radius: 12px;
-            padding: 20px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-top: 24px;
-        }
-        .consent-box input[type="checkbox"] {
-            width: 20px; height: 20px;
-            accent-color: var(--teal);
-            margin-top: 2px;
-            flex-shrink: 0;
-            cursor: pointer;
-        }
-        .consent-box p {
-            font-size: 0.85rem;
-            line-height: 1.5;
-            color: var(--text-light);
-        }
-
-        /* ── Success Screen ── */
-        .success-screen {
-            display: none;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .success-screen.active { display: block; }
-        .success-icon {
-            width: 80px; height: 80px;
-            background: var(--teal-glow);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2.5rem;
-        }
-        .success-screen h2 { margin-bottom: 12px; }
-        .success-screen p { max-width: 480px; margin: 0 auto; }
-        .success-screen .btn { margin-top: 28px; }
-
-        /* ── Footer ── */
-        footer {
-            background: #070F1D;
-            color: rgba(255,255,255,0.5);
-            text-align: center;
-            padding: 32px 24px;
-            font-size: 0.8rem;
-        }
-        footer a { color: var(--teal); text-decoration: none; }
-
-        /* ── Field label section divider ── */
-        .field-section-title {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
             color: var(--navy);
-            margin-top: 28px;
-            margin-bottom: 14px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--grey-light);
+            box-shadow: 0 4px 16px rgba(212,168,83,0.3);
         }
-        .field-section-title:first-child { margin-top: 0; }
+        .btn-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(212,168,83,0.4); }
+
+        /* ── Completion ── */
+        .completion { text-align: center; padding: 40px 20px; display: none; }
+        .completion.show { display: block; }
+        .completion-icon {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: var(--teal-glow); margin: 0 auto 24px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+        }
+        .completion h2 { margin-bottom: 12px; }
+        .completion p { color: var(--text-light); max-width: 420px; margin: 0 auto; line-height: 1.7; }
     </style>
 </head>
 <body>
 
-<!-- ══════════════ Header ══════════════ -->
 <div class="form-header">
-    <a href="index.html" class="back-link">&larr; Back to Home</a>
-    <h1>Charter Member <em>Intake</em></h1>
-    <p>Complete this form to reserve your seat in the founding pilot cohort.</p>
+    <a href="index.html" class="back-link">&#8592; Back to Home</a>
+    <span class="section-label">Integrative Health Institute</span>
+    <h1>Your Health <em>Profile</em></h1>
+    <p>Confidential &middot; Executive Intake &middot; Version 4</p>
 </div>
 
-<!-- ══════════════ Progress Bar ══════════════ -->
+<div class="scale-legend">
+    <p>
+        Rating scale used throughout &mdash;
+        <span>1</span> very poor &nbsp;&middot;&nbsp;
+        <span>3</span> below average &nbsp;&middot;&nbsp;
+        <span>5</span> average &nbsp;&middot;&nbsp;
+        <span>7</span> good &nbsp;&middot;&nbsp;
+        <span>9</span> excellent &nbsp;&middot;&nbsp;
+        <span>10</span> elite / optimal
+    </p>
+</div>
+
 <div class="progress-container">
-    <div class="progress-steps">
-        <div class="progress-line"><div class="progress-line-fill" id="progressFill" style="width: 0%"></div></div>
-        <div class="progress-step active" data-step="1">
-            <div class="step-num">1</div>
-            <div class="step-text">Contact</div>
+    <div class="progress-bar-row">
+        <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progressFill" style="width:0%"></div>
         </div>
-        <div class="progress-step" data-step="2">
-            <div class="step-num">2</div>
-            <div class="step-text">Profile</div>
-        </div>
-        <div class="progress-step" data-step="3">
-            <div class="step-num">3</div>
-            <div class="step-text">Health</div>
-        </div>
-        <div class="progress-step" data-step="4">
-            <div class="step-num">4</div>
-            <div class="step-text">Lifestyle</div>
-        </div>
-        <div class="progress-step" data-step="5">
-            <div class="step-num">5</div>
-            <div class="step-text">Goals</div>
-        </div>
-        <div class="progress-step" data-step="6">
-            <div class="step-num">6</div>
-            <div class="step-text">Review</div>
-        </div>
+        <div class="progress-text" id="progressText">1 of 11</div>
+    </div>
+    <div class="progress-steps" id="progressSteps">
+        <div class="progress-step active" onclick="goTo(1)"><div class="step-num">1</div><div class="step-lbl">Context</div></div>
+        <div class="progress-step" onclick="goTo(2)"><div class="step-num">2</div><div class="step-lbl">Health</div></div>
+        <div class="progress-step" onclick="goTo(3)"><div class="step-num">3</div><div class="step-lbl">Numbers</div></div>
+        <div class="progress-step" onclick="goTo(4)"><div class="step-num">4</div><div class="step-lbl">Nutrition</div></div>
+        <div class="progress-step" onclick="goTo(5)"><div class="step-num">5</div><div class="step-lbl">Movement</div></div>
+        <div class="progress-step" onclick="goTo(6)"><div class="step-num">6</div><div class="step-lbl">Sleep</div></div>
+        <div class="progress-step" onclick="goTo(7)"><div class="step-num">7</div><div class="step-lbl">Stress</div></div>
+        <div class="progress-step" onclick="goTo(8)"><div class="step-num">8</div><div class="step-lbl">Lifestyle</div></div>
+        <div class="progress-step" onclick="goTo(9)"><div class="step-num">9</div><div class="step-lbl">Values</div></div>
+        <div class="progress-step" onclick="goTo(10)"><div class="step-num">10</div><div class="step-lbl">Goals</div></div>
+        <div class="progress-step" onclick="goTo(11)"><div class="step-num">11</div><div class="step-lbl">Readiness</div></div>
     </div>
 </div>
 
-<!-- ══════════════ Form ══════════════ -->
 <div class="form-wrapper">
-    <div class="form-card">
-        <form id="intakeForm" novalidate>
+<div class="form-card">
 
-            <!-- ═══ STEP 1: Contact ═══ -->
-            <div class="step-panel active" data-step="1">
-                <span class="section-label">Step 1 of 6</span>
-                <h2>Contact &amp; Basic Info</h2>
-                <p class="step-desc">Let's start with how we can reach you.</p>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>First Name <span class="req">*</span></label>
-                        <input type="text" name="firstName" required placeholder="John">
-                        <span class="error-msg">Please enter your first name</span>
-                    </div>
-                    <div class="form-group">
-                        <label>Last Name <span class="req">*</span></label>
-                        <input type="text" name="lastName" required placeholder="Smith">
-                        <span class="error-msg">Please enter your last name</span>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Email <span class="req">*</span></label>
-                        <input type="email" name="email" required placeholder="john@company.com">
-                        <span class="error-msg">Please enter a valid email</span>
-                    </div>
-                    <div class="form-group">
-                        <label>Phone <span class="req">*</span></label>
-                        <input type="tel" name="phone" required placeholder="(902) 555-1234">
-                        <span class="error-msg">Please enter your phone number</span>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Company / Organization</label>
-                        <input type="text" name="company" placeholder="Acme Corp">
-                    </div>
-                    <div class="form-group">
-                        <label>Title / Role</label>
-                        <input type="text" name="title" placeholder="CEO, Founder, VP...">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>City <span class="req">*</span></label>
-                        <input type="text" name="city" required placeholder="Halifax">
-                        <span class="error-msg">Please enter your city</span>
-                    </div>
-                    <div class="form-group">
-                        <label>How did you hear about us?</label>
-                        <select name="referral">
-                            <option value="">Select one...</option>
-                            <option value="linkedin">LinkedIn</option>
-                            <option value="referral">Friend / Colleague Referral</option>
-                            <option value="email">Email</option>
-                            <option value="event">Event / Presentation</option>
-                            <option value="search">Online Search</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="form-nav">
-                    <div></div>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
-                </div>
-            </div>
-
-            <!-- ═══ STEP 2: Profile ═══ -->
-            <div class="step-panel" data-step="2">
-                <span class="section-label">Step 2 of 6</span>
-                <h2>Which leader are you?</h2>
-                <p class="step-desc">Help us understand where you are today so we can personalize your experience.</p>
-
-                <div class="field-section-title">Select the profile that best describes you</div>
-                <div class="option-grid" style="grid-template-columns: 1fr;">
-                    <label class="persona-option">
-                        <input type="radio" name="persona" value="high-performing" required>
-                        <div class="persona-label">
-                            <div class="persona-title">&#128640; High Performing</div>
-                            <div class="persona-desc">I want to protect and grow what I've built. Optimize longevity and expand capacity.</div>
-                        </div>
-                    </label>
-                    <label class="persona-option">
-                        <input type="radio" name="persona" value="hidden-risk">
-                        <div class="persona-label">
-                            <div class="persona-title">&#9888;&#65039; Hidden Risk</div>
-                            <div class="persona-desc">I feel fine, but something's off. Sleep issues, weight creep, energy dips, rising negativity.</div>
-                        </div>
-                    </label>
-                    <label class="persona-option">
-                        <input type="radio" name="persona" value="struggling">
-                        <div class="persona-label">
-                            <div class="persona-title">&#128680; Struggling</div>
-                            <div class="persona-desc">I'm symptomatic or diagnosed. Capacity is declining and I need a system to reverse course.</div>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="field-section-title">Primary motivation for joining</div>
-                <div class="checkbox-list">
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="prevent-disease"><span>Prevent future disease</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="more-energy"><span>More energy &amp; vitality</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="weight-management"><span>Weight management</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="mental-clarity"><span>Mental clarity &amp; focus</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="better-sleep"><span>Better sleep</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="stress-reduction"><span>Stress reduction</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="reverse-condition"><span>Reverse a condition</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="motivation" value="longevity"><span>Longevity &amp; healthspan</span></label>
-                </div>
-
-                <div class="form-row single">
-                    <div class="form-group">
-                        <label>What does success look like for you in 6 months?</label>
-                        <textarea name="successVision" placeholder="Describe what you'd like to be different about your health, energy, or life in 6 months..."></textarea>
-                    </div>
-                </div>
-
-                <div class="form-nav">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
-                </div>
-            </div>
-
-            <!-- ═══ STEP 3: Health Snapshot ═══ -->
-            <div class="step-panel" data-step="3">
-                <span class="section-label">Step 3 of 6</span>
-                <h2>Health Snapshot</h2>
-                <p class="step-desc">This information helps our team prepare your initial assessment. All data is strictly confidential.</p>
-
-                <div class="form-row triple">
-                    <div class="form-group">
-                        <label>Age <span class="req">*</span></label>
-                        <input type="number" name="age" required placeholder="45" min="18" max="100">
-                        <span class="error-msg">Please enter your age</span>
-                    </div>
-                    <div class="form-group">
-                        <label>Height</label>
-                        <input type="text" name="height" placeholder="5'10&quot; or 178 cm">
-                    </div>
-                    <div class="form-group">
-                        <label>Weight</label>
-                        <input type="text" name="weight" placeholder="185 lbs or 84 kg">
-                    </div>
-                </div>
-
-                <div class="field-section-title">Known conditions or diagnoses</div>
-                <div class="checkbox-list">
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="type2-diabetes"><span>Type 2 Diabetes</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="hypertension"><span>Hypertension</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="high-cholesterol"><span>High Cholesterol</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="sleep-apnea"><span>Sleep Apnea</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="anxiety-depression"><span>Anxiety / Depression</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="heart-disease"><span>Heart Disease</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="thyroid"><span>Thyroid Condition</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="conditions" value="none"><span>None</span></label>
-                </div>
-                <div class="form-row single" style="margin-top: 4px;">
-                    <div class="form-group">
-                        <label>Other conditions (if any)</label>
-                        <input type="text" name="conditionsOther" placeholder="Describe any other conditions...">
-                    </div>
-                </div>
-
-                <div class="field-section-title">Family history of concern</div>
-                <div class="checkbox-list">
-                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="heart-disease"><span>Heart Disease</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="diabetes"><span>Diabetes</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="cancer"><span>Cancer</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="stroke"><span>Stroke</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="hypertension"><span>Hypertension</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="familyHistory" value="none"><span>None / Unknown</span></label>
-                </div>
-
-                <div class="form-row single">
-                    <div class="form-group">
-                        <label>Current medications</label>
-                        <textarea name="medications" rows="3" placeholder="List any current medications, supplements, or treatments..."></textarea>
-                    </div>
-                </div>
-
-                <div class="field-section-title">Do you have a current physician?</div>
-                <div class="toggle-row" style="border-bottom: none;">
-                    <span>I have a family doctor / GP</span>
-                    <div class="toggle-btns">
-                        <button type="button" onclick="toggleSelect(this, 'hasPhysician', 'yes')" data-group="hasPhysician">Yes</button>
-                        <button type="button" onclick="toggleSelect(this, 'hasPhysician', 'no')" data-group="hasPhysician">No</button>
-                    </div>
-                </div>
-                <input type="hidden" name="hasPhysician" value="">
-                <div class="conditional" id="physicianField">
-                    <div class="form-group">
-                        <label>Physician's Name</label>
-                        <input type="text" name="physicianName" placeholder="Dr. Jane Smith">
-                    </div>
-                </div>
-
-                <div class="form-nav">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
-                </div>
-            </div>
-
-            <!-- ═══ STEP 4: Lifestyle ═══ -->
-            <div class="step-panel" data-step="4">
-                <span class="section-label">Step 4 of 6</span>
-                <h2>Lifestyle &amp; Habits</h2>
-                <p class="step-desc">Understanding your current habits helps us build a plan around your real life.</p>
-
-                <div class="field-section-title">Exercise</div>
-                <div class="option-grid cols-4">
-                    <label class="option-card">
-                        <input type="radio" name="exercise" value="none">
-                        <div class="card-label">
-                            <span class="card-icon">&#128716;</span>
-                            <span class="card-title">Rarely</span>
-                            <span class="card-desc">0 times/week</span>
-                        </div>
-                    </label>
-                    <label class="option-card">
-                        <input type="radio" name="exercise" value="light">
-                        <div class="card-label">
-                            <span class="card-icon">&#128694;</span>
-                            <span class="card-title">Light</span>
-                            <span class="card-desc">1&ndash;2 times/week</span>
-                        </div>
-                    </label>
-                    <label class="option-card">
-                        <input type="radio" name="exercise" value="moderate">
-                        <div class="card-label">
-                            <span class="card-icon">&#127939;</span>
-                            <span class="card-title">Moderate</span>
-                            <span class="card-desc">3&ndash;4 times/week</span>
-                        </div>
-                    </label>
-                    <label class="option-card">
-                        <input type="radio" name="exercise" value="active">
-                        <div class="card-label">
-                            <span class="card-icon">&#127947;&#65039;</span>
-                            <span class="card-title">Active</span>
-                            <span class="card-desc">5+ times/week</span>
-                        </div>
-                    </label>
-                </div>
-
-                <div class="field-section-title">Sleep</div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Sleep quality</label>
-                        <select name="sleepQuality">
-                            <option value="">Select...</option>
-                            <option value="poor">Poor — I struggle most nights</option>
-                            <option value="fair">Fair — Inconsistent or light sleep</option>
-                            <option value="good">Good — Generally restful</option>
-                            <option value="excellent">Excellent — Deep, consistent sleep</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Average hours per night</label>
-                        <select name="sleepHours">
-                            <option value="">Select...</option>
-                            <option value="<5">Less than 5 hours</option>
-                            <option value="5-6">5–6 hours</option>
-                            <option value="6-7">6–7 hours</option>
-                            <option value="7-8">7–8 hours</option>
-                            <option value="8+">8+ hours</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="field-section-title">Substances &amp; Nutrition</div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Alcohol consumption</label>
-                        <select name="alcohol">
-                            <option value="">Select...</option>
-                            <option value="none">None</option>
-                            <option value="occasional">Occasional (1–3 drinks/week)</option>
-                            <option value="moderate">Moderate (4–7 drinks/week)</option>
-                            <option value="heavy">Heavy (8+ drinks/week)</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Nutrition self-rating</label>
-                        <select name="nutrition">
-                            <option value="">Select...</option>
-                            <option value="poor">Poor — Mostly convenience food</option>
-                            <option value="fair">Fair — Could be much better</option>
-                            <option value="good">Good — Mostly healthy choices</option>
-                            <option value="excellent">Excellent — Intentional &amp; consistent</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="toggle-row">
-                    <span>Do you currently smoke or use nicotine?</span>
-                    <div class="toggle-btns">
-                        <button type="button" onclick="toggleSelect(this, 'smoking', 'yes')" data-group="smoking">Yes</button>
-                        <button type="button" onclick="toggleSelect(this, 'smoking', 'no')" data-group="smoking">No</button>
-                    </div>
-                </div>
-                <input type="hidden" name="smoking" value="">
-
-                <div class="slider-group" style="margin-top: 28px;">
-                    <label>
-                        Daily stress level
-                        <span class="slider-val" id="stressVal">5</span>
-                    </label>
-                    <input type="range" name="stress" min="1" max="10" value="5" oninput="document.getElementById('stressVal').textContent = this.value">
-                    <div class="slider-labels">
-                        <span>1 — Low</span>
-                        <span>10 — Extreme</span>
-                    </div>
-                </div>
-
-                <div class="form-nav">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Continue &rarr;</button>
-                </div>
-            </div>
-
-            <!-- ═══ STEP 5: Goals ═══ -->
-            <div class="step-panel" data-step="5">
-                <span class="section-label">Step 5 of 6</span>
-                <h2>Goals &amp; Readiness</h2>
-                <p class="step-desc">Integration is the intervention. Let's make sure you're ready for the full program.</p>
-
-                <div class="field-section-title">Top health goals (select all that apply)</div>
-                <div class="checkbox-list">
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="weight-loss"><span>Weight loss / body composition</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="better-sleep"><span>Better sleep</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="more-energy"><span>More energy</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="reduce-meds"><span>Reduce medications</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="mental-clarity"><span>Mental clarity &amp; focus</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="stress-mgmt"><span>Stress management</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="disease-prevention"><span>Disease prevention</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="longevity"><span>Longevity &amp; healthspan</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="fitness"><span>Fitness &amp; strength</span></label>
-                    <label class="checkbox-item"><input type="checkbox" name="goals" value="relationships"><span>Better relationships &amp; presence</span></label>
-                </div>
-
-                <div class="form-row single">
-                    <div class="form-group">
-                        <label>What's your biggest obstacle to making lasting change?</label>
-                        <textarea name="obstacle" placeholder="Time, travel, stress, knowledge gaps, accountability, motivation..."></textarea>
-                    </div>
-                </div>
-
-                <div class="slider-group">
-                    <label>
-                        Commitment level to the full program
-                        <span class="slider-val" id="commitVal">7</span>
-                    </label>
-                    <input type="range" name="commitment" min="1" max="10" value="7" oninput="document.getElementById('commitVal').textContent = this.value">
-                    <div class="slider-labels">
-                        <span>1 — Just curious</span>
-                        <span>10 — All in</span>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Preferred start timeframe</label>
-                        <select name="timeframe">
-                            <option value="">Select...</option>
-                            <option value="asap">As soon as possible</option>
-                            <option value="1-month">Within 1 month</option>
-                            <option value="3-months">Within 3 months</option>
-                            <option value="exploring">Just exploring for now</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label>Any scheduling constraints?</label>
-                        <input type="text" name="scheduling" placeholder="Travel schedule, busy seasons...">
-                    </div>
-                </div>
-
-                <div class="form-row single">
-                    <div class="form-group">
-                        <label>Anything else you'd like us to know?</label>
-                        <textarea name="additionalNotes" rows="3" placeholder="Questions, concerns, or context that would help us serve you better..."></textarea>
-                    </div>
-                </div>
-
-                <div class="form-nav">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
-                    <button type="button" class="btn btn-next" onclick="nextStep()">Review Your Answers &rarr;</button>
-                </div>
-            </div>
-
-            <!-- ═══ STEP 6: Review ═══ -->
-            <div class="step-panel" data-step="6">
-                <span class="section-label">Step 6 of 6</span>
-                <h2>Review &amp; Submit</h2>
-                <p class="step-desc">Please review your information below. Click "Edit" on any section to make changes.</p>
-
-                <div id="reviewContent"></div>
-
-                <div class="consent-box">
-                    <input type="checkbox" id="consent" name="consent">
-                    <p>I understand this is a founding pilot program. I agree to provide honest feedback to help shape the program, and I consent to the Integrative Health team reviewing my health information to prepare my personalized assessment. All information is strictly confidential.</p>
-                </div>
-
-                <div class="form-nav" style="justify-content: center; gap: 16px; flex-wrap: wrap;">
-                    <button type="button" class="btn btn-back" onclick="prevStep()">&larr; Back</button>
-                    <button type="button" class="btn btn-submit" id="submitBtn" disabled onclick="submitForm()">Submit Application &rarr;</button>
-                </div>
-            </div>
-        </form>
-
-        <!-- ═══ Success Screen ═══ -->
-        <div class="success-screen" id="successScreen">
-            <div class="success-icon">&#10003;</div>
-            <h2>Application Received!</h2>
-            <p>Thank you for your interest in the Integrative Health founding pilot. Our team will review your application and reach out within 2&ndash;3 business days to schedule your introductory conversation.</p>
-            <a href="index.html" class="btn btn-next">Back to Home &rarr;</a>
-        </div>
+<!-- S1 -->
+<div class="step-panel active" data-step="1">
+    <span class="section-label">Section 1 of 11</span>
+    <h2>Personal Context</h2>
+    <p class="step-desc">Help us understand who you are and what your life looks like right now.</p>
+    <div class="form-row triple">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"/></div>
+        <div class="form-group"><label>Date of Birth</label><input type="date"/></div>
+        <div class="form-group"><label>Age</label><input type="number" placeholder="e.g. 48" min="18" max="100"/></div>
+    </div>
+    <div class="form-row triple">
+        <div class="form-group"><label>Height</label><input type="text" placeholder="e.g. 5'11 / 180cm"/></div>
+        <div class="form-group"><label>Weight</label><input type="text" placeholder="e.g. 185 lbs / 84 kg"/></div>
+        <div class="form-group"><label>Waist</label><input type="text" placeholder="e.g. 36 in / 91 cm"/></div>
+    </div>
+    <div class="form-row">
+        <div class="form-group"><label>Occupation / Role</label><input type="text" placeholder="Your title or role"/></div>
+        <div class="form-group"><label>Work Hours / Week</label><input type="number" placeholder="e.g. 55" min="0" max="120"/></div>
+    </div>
+    <div class="form-row">
+        <div class="form-group"><label>Travel Frequency</label><input type="text" placeholder="e.g. 2–3 trips/month"/></div>
+        <div class="form-group"><label>Marital / Partner Status</label><input type="text" placeholder="e.g. Married"/></div>
+    </div>
+    <div class="form-row single">
+        <div class="form-group"><label>Children</label><input type="text" placeholder="e.g. 2 kids, ages 8 and 11"/></div>
+    </div>
+    <hr class="form-divider"/>
+    <span class="field-label">Current Life Load</span>
+    <div class="pills">
+        <label class="pill"><input type="radio" name="lifeload"/><span>Very balanced</span></label>
+        <label class="pill"><input type="radio" name="lifeload"/><span>Busy</span></label>
+        <label class="pill"><input type="radio" name="lifeload"/><span>High stress</span></label>
+        <label class="pill"><input type="radio" name="lifeload"/><span>Overloaded</span></label>
+        <label class="pill"><input type="radio" name="lifeload"/><span>Exhausted</span></label>
+    </div>
+    <div class="scale-wrap">
+        <span class="field-label">Life Satisfaction (1&ndash;10)</span>
+        <div class="scale-row" id="scale_lifesatisfaction"></div>
+        <div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div>
+    </div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" disabled>&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
     </div>
 </div>
 
-<!-- ══════════════ Footer ══════════════ -->
-<footer>
-    <p>&copy; 2026 Calhan Consulting Group Inc. &middot; Proprietary &amp; Confidential</p>
-    <p style="margin-top:6px;">Integrative Health Program &middot; Halifax, Nova Scotia &middot; <a href="mailto:sean@calhan.ca">sean@calhan.ca</a></p>
-</footer>
+<!-- S2 -->
+<div class="step-panel" data-step="2">
+    <span class="section-label">Section 2 of 11</span>
+    <h2>Current Health Status</h2>
+    <p class="step-desc">Your medical background helps us personalise your program safely and effectively.</p>
+    <span class="field-label">Diagnosed Conditions <span style="font-weight:400;color:var(--grey)">(check all that apply)</span></span>
+    <div class="pills">
+        <label class="pill"><input type="checkbox" name="conditions"/><span>High blood pressure</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>High cholesterol</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Prediabetes / Diabetes</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Heart disease</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Stroke / TIA</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Cancer</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Thyroid disorder</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Hormone disorder</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Sleep apnea</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Depression / Anxiety</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Digestive disorder</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Autoimmune disease</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Chronic pain</span></label>
+        <label class="pill"><input type="checkbox" name="conditions"/><span>Other</span></label>
+    </div>
+    <div class="form-row single">
+        <div class="form-group"><label>Surgeries (past or planned)</label><textarea placeholder="List any surgeries and approximate dates&#8230;"></textarea></div>
+    </div>
+    <span class="field-label">Current Symptoms <span style="font-weight:400;color:var(--grey)">(check all that apply)</span></span>
+    <div class="pills">
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Fatigue</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Brain fog</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Poor sleep</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Low libido</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Weight gain</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Joint pain</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Anxiety</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Depression</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Low motivation</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Slow recovery</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Digestive issues</span></label>
+        <label class="pill"><input type="checkbox" name="symptoms"/><span>Other</span></label>
+    </div>
+    <div class="form-row">
+        <div class="form-group"><label>Current Medications</label><textarea placeholder="Name, dose, reason&#8230;" style="min-height:70px"></textarea></div>
+        <div class="form-group"><label>Supplements</label><textarea placeholder="Vitamins, minerals, protein&#8230;" style="min-height:70px"></textarea></div>
+    </div>
+    <span class="field-label">Family History <span style="font-weight:400;color:var(--grey)">(check all that apply)</span></span>
+    <div class="pills">
+        <label class="pill"><input type="checkbox" name="family"/><span>Heart disease</span></label>
+        <label class="pill"><input type="checkbox" name="family"/><span>Diabetes</span></label>
+        <label class="pill"><input type="checkbox" name="family"/><span>Cancer</span></label>
+        <label class="pill"><input type="checkbox" name="family"/><span>Dementia</span></label>
+        <label class="pill"><input type="checkbox" name="family"/><span>Longevity &gt;90</span></label>
+    </div>
+    <div class="scale-wrap">
+        <span class="field-label">How would you rate your current health overall? (1&ndash;10)</span>
+        <div class="scale-row" id="scale_currenthealth"></div>
+        <div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div>
+    </div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
 
-<!-- ══════════════ JavaScript ══════════════ -->
+<!-- S3 -->
+<div class="step-panel" data-step="3">
+    <span class="section-label">Section 3 of 11</span>
+    <h2>Numbers You May Know</h2>
+    <p class="step-desc">This section is optional &mdash; share what you have. All results will be reviewed by our medical team.</p>
+    <div class="form-row triple">
+        <div class="form-group"><label>Blood Pressure</label><input type="text" placeholder="e.g. 120/80"/></div>
+        <div class="form-group"><label>Resting Heart Rate (bpm)</label><input type="number" placeholder="e.g. 62"/></div>
+        <div class="form-group"><label>Body Fat %</label><input type="text" placeholder="e.g. 22%"/></div>
+    </div>
+    <div class="field-row">
+        <span class="field-label">Blood tests in last 2 years?</span>
+        <div class="toggle-group">
+            <label class="toggle"><input type="radio" name="bloodtests"/><span>Yes</span></label>
+            <label class="toggle"><input type="radio" name="bloodtests"/><span>No</span></label>
+        </div>
+    </div>
+    <div class="field-row">
+        <span class="field-label">Results available to upload?</span>
+        <div class="toggle-group">
+            <label class="toggle"><input type="radio" name="upload"/><span>Yes</span></label>
+            <label class="toggle"><input type="radio" name="upload"/><span>No</span></label>
+        </div>
+    </div>
+    <span class="field-label">Advanced Tests Completed <span style="font-weight:400;color:var(--grey)">(check all that apply)</span></span>
+    <div class="pills">
+        <label class="pill"><input type="checkbox" name="tests"/><span>CGM (Continuous Glucose)</span></label>
+        <label class="pill"><input type="checkbox" name="tests"/><span>Stress Test</span></label>
+        <label class="pill"><input type="checkbox" name="tests"/><span>DEXA Scan</span></label>
+        <label class="pill"><input type="checkbox" name="tests"/><span>VO2 Max Test</span></label>
+        <label class="pill"><input type="checkbox" name="tests"/><span>Sleep Study</span></label>
+        <label class="pill"><input type="checkbox" name="tests"/><span>Hormone Panel</span></label>
+    </div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S4 -->
+<div class="step-panel" data-step="4">
+    <span class="section-label">Section 4 of 11</span>
+    <h2>Nutrition</h2>
+    <p class="step-desc">Your eating patterns are one of the most powerful levers we have. Be honest &mdash; there's no wrong answer.</p>
+    <span class="field-label">Primary Diet Pattern</span>
+    <div class="pills">
+        <label class="pill"><input type="radio" name="diettype"/><span>Standard / Mixed</span></label>
+        <label class="pill"><input type="radio" name="diettype"/><span>Low Carb</span></label>
+        <label class="pill"><input type="radio" name="diettype"/><span>Keto</span></label>
+        <label class="pill"><input type="radio" name="diettype"/><span>Mediterranean</span></label>
+        <label class="pill"><input type="radio" name="diettype"/><span>Vegetarian</span></label>
+        <label class="pill"><input type="radio" name="diettype"/><span>Vegan</span></label>
+        <label class="pill"><input type="radio" name="diettype"/><span>High Protein</span></label>
+        <label class="pill"><input type="radio" name="diettype"/><span>Other</span></label>
+    </div>
+    <div class="form-row">
+        <div class="form-group"><label>Meals Per Day</label><input type="number" placeholder="e.g. 3" min="1" max="10"/></div>
+        <div class="form-group"><label>Alcohol Per Week (drinks)</label><input type="number" placeholder="e.g. 5" min="0"/></div>
+    </div>
+    <div class="field-row">
+        <span class="field-label">Regular snacking?</span>
+        <div class="toggle-group">
+            <label class="toggle"><input type="radio" name="snacking"/><span>Yes</span></label>
+            <label class="toggle"><input type="radio" name="snacking"/><span>No</span></label>
+        </div>
+    </div>
+    <div class="field-row">
+        <span class="field-label">Sugar cravings?</span>
+        <div class="toggle-group">
+            <label class="toggle"><input type="radio" name="sugarcravings"/><span>Yes</span></label>
+            <label class="toggle"><input type="radio" name="sugarcravings"/><span>No</span></label>
+        </div>
+    </div>
+    <div class="field-row">
+        <span class="field-label">Late night eating?</span>
+        <div class="toggle-group">
+            <label class="toggle"><input type="radio" name="latenight"/><span>Yes</span></label>
+            <label class="toggle"><input type="radio" name="latenight"/><span>No</span></label>
+        </div>
+    </div>
+    <span class="field-label">Overnight Fasting Window</span>
+    <div class="pills">
+        <label class="pill"><input type="radio" name="fastingwindow"/><span>&lt;10 hrs</span></label>
+        <label class="pill"><input type="radio" name="fastingwindow"/><span>10&ndash;12 hrs</span></label>
+        <label class="pill"><input type="radio" name="fastingwindow"/><span>12&ndash;14 hrs</span></label>
+        <label class="pill"><input type="radio" name="fastingwindow"/><span>14&ndash;16 hrs</span></label>
+        <label class="pill"><input type="radio" name="fastingwindow"/><span>16&ndash;18 hrs</span></label>
+        <label class="pill"><input type="radio" name="fastingwindow"/><span>18+ hrs</span></label>
+    </div>
+    <span class="field-label">Intentional Fasting Practice</span>
+    <div class="pills">
+        <label class="pill"><input type="radio" name="intentionalfasting"/><span>No fasting</span></label>
+        <label class="pill"><input type="radio" name="intentionalfasting"/><span>Occasional</span></label>
+        <label class="pill"><input type="radio" name="intentionalfasting"/><span>Regular</span></label>
+    </div>
+    <span class="field-label">Meals Prepared at Home</span>
+    <div class="pills">
+        <label class="pill"><input type="radio" name="homecooked"/><span>90&ndash;100%</span></label>
+        <label class="pill"><input type="radio" name="homecooked"/><span>70&ndash;90%</span></label>
+        <label class="pill"><input type="radio" name="homecooked"/><span>50&ndash;70%</span></label>
+        <label class="pill"><input type="radio" name="homecooked"/><span>30&ndash;50%</span></label>
+        <label class="pill"><input type="radio" name="homecooked"/><span>&lt;30%</span></label>
+    </div>
+    <div class="form-row">
+        <div class="form-group"><label>Biggest Nutrition Strength</label><input type="text" placeholder="e.g. Consistent meal prep"/></div>
+        <div class="form-group"><label>Biggest Nutrition Weakness</label><input type="text" placeholder="e.g. Late night snacking"/></div>
+    </div>
+    <div class="scale-wrap">
+        <span class="field-label">Nutrition Knowledge (1&ndash;10)</span>
+        <div class="scale-row" id="scale_nutrition"></div>
+        <div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div>
+    </div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S5 -->
+<div class="step-panel" data-step="5">
+    <span class="section-label">Section 5 of 11</span>
+    <h2>Movement &amp; Fitness</h2>
+    <p class="step-desc">Tell us about how you move &mdash; your current baseline is our starting point, not a judgment.</p>
+    <div class="form-row single">
+        <div class="form-group"><label>Exercise Days Per Week</label><input type="number" placeholder="e.g. 3" min="0" max="7"/></div>
+    </div>
+    <span class="field-label">Types of Exercise <span style="font-weight:400;color:var(--grey)">(check all that apply)</span></span>
+    <div class="pills">
+        <label class="pill"><input type="checkbox" name="extype"/><span>Walking</span></label>
+        <label class="pill"><input type="checkbox" name="extype"/><span>Running</span></label>
+        <label class="pill"><input type="checkbox" name="extype"/><span>Cycling</span></label>
+        <label class="pill"><input type="checkbox" name="extype"/><span>Gym / Weights</span></label>
+        <label class="pill"><input type="checkbox" name="extype"/><span>Strength Training</span></label>
+        <label class="pill"><input type="checkbox" name="extype"/><span>Mobility / Stretching</span></label>
+        <label class="pill"><input type="checkbox" name="extype"/><span>HIIT</span></label>
+        <label class="pill"><input type="checkbox" name="extype"/><span>Sports</span></label>
+    </div>
+    <div class="field-row">
+        <span class="field-label">Dedicated strength training program?</span>
+        <div class="toggle-group">
+            <label class="toggle"><input type="radio" name="strengthprog"/><span>Yes</span></label>
+            <label class="toggle"><input type="radio" name="strengthprog"/><span>No</span></label>
+        </div>
+    </div>
+    <div class="form-row single">
+        <div class="form-group"><label>Current Injuries or Limitations</label><textarea placeholder="Describe any injuries, chronic pain, or movement restrictions&#8230;" style="min-height:70px"></textarea></div>
+    </div>
+    <div class="form-row single">
+        <div class="form-group"><label>Primary Fitness Goal</label><input type="text" placeholder="e.g. Build strength, lose fat, improve energy"/></div>
+    </div>
+    <div class="scale-wrap">
+        <span class="field-label">Fitness Level (1&ndash;10)</span>
+        <div class="scale-row" id="scale_fitness"></div>
+        <div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div>
+    </div>
+    <div class="scale-wrap">
+        <span class="field-label">Energy Available for Exercise (1&ndash;10)</span>
+        <div class="scale-row" id="scale_exenergy"></div>
+        <div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div>
+    </div>
+    <div class="scale-wrap">
+        <span class="field-label">Recovery Ability (1&ndash;10)</span>
+        <div class="scale-row" id="scale_recovery"></div>
+        <div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div>
+    </div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S6 -->
+<div class="step-panel" data-step="6">
+    <span class="section-label">Section 6 of 11</span>
+    <h2>Sleep &amp; Recovery</h2>
+    <p class="step-desc">Sleep is the foundation of everything. Help us understand what your nights look like.</p>
+    <div class="form-row">
+        <div class="form-group"><label>Average Sleep Hours / Night</label><input type="number" placeholder="e.g. 6.5" min="2" max="12" step="0.5"/></div>
+        <div class="form-group"><label>Time Awake During Sleep (min)</label><input type="number" placeholder="e.g. 30" min="0"/></div>
+    </div>
+    <div class="field-row"><span class="field-label">Wake feeling refreshed?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="refreshed"/><span>Yes</span></label><label class="toggle"><input type="radio" name="refreshed"/><span>No</span></label></div></div>
+    <div class="field-row"><span class="field-label">Wake at night regularly?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="wakeatnight"/><span>Yes</span></label><label class="toggle"><input type="radio" name="wakeatnight"/><span>No</span></label></div></div>
+    <div class="field-row"><span class="field-label">Snoring?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="snoring"/><span>Yes</span></label><label class="toggle"><input type="radio" name="snoring"/><span>No</span></label></div></div>
+    <div class="field-row"><span class="field-label">Alcohol affects sleep?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="alcoholsleep"/><span>Yes</span></label><label class="toggle"><input type="radio" name="alcoholsleep"/><span>No</span></label></div></div>
+    <div class="field-row"><span class="field-label">Regular naps?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="nap"/><span>Yes</span></label><label class="toggle"><input type="radio" name="nap"/><span>No</span></label></div></div>
+    <div class="field-row"><span class="field-label">Track sleep (device / app)?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="sleeptrack"/><span>Yes</span></label><label class="toggle"><input type="radio" name="sleeptrack"/><span>No</span></label></div></div>
+    <hr class="form-divider"/>
+    <div class="scale-wrap"><span class="field-label">Sleep Quality (1&ndash;10)</span><div class="scale-row" id="scale_sleepquality"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Morning Energy (1&ndash;10)</span><div class="scale-row" id="scale_morningenergy"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Afternoon Energy (1&ndash;10)</span><div class="scale-row" id="scale_afternoonenergy"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Evening Energy (1&ndash;10)</span><div class="scale-row" id="scale_eveningenergy"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S7 -->
+<div class="step-panel" data-step="7">
+    <span class="section-label">Section 7 of 11</span>
+    <h2>Stress &amp; Mental Fitness</h2>
+    <p class="step-desc">Mental fitness is as trainable as physical fitness. Let's see where you are starting from.</p>
+    <div class="scale-wrap"><span class="field-label">Work Stress (1&ndash;10)</span><div class="scale-row" id="scale_workstress"></div><div class="scale-labels"><span>Very low</span><span>Extreme</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Life Stress Overall (1&ndash;10)</span><div class="scale-row" id="scale_lifestress"></div><div class="scale-labels"><span>Very low</span><span>Extreme</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Anxiety Level (1&ndash;10)</span><div class="scale-row" id="scale_anxiety"></div><div class="scale-labels"><span>Very low</span><span>Severe</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Mood (1&ndash;10)</span><div class="scale-row" id="scale_mood"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Focus &amp; Concentration (1&ndash;10)</span><div class="scale-row" id="scale_focus"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Emotional Control (1&ndash;10)</span><div class="scale-row" id="scale_emotionalcontrol"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Resilience (1&ndash;10)</span><div class="scale-row" id="scale_resilience"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Sense of Purpose (1&ndash;10)</span><div class="scale-row" id="scale_purpose"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="field-row"><span class="field-label">Living at your full potential?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="potential"/><span>Yes</span></label><label class="toggle"><input type="radio" name="potential"/><span>No</span></label></div></div>
+    <span class="field-label">Meditation / Reflection Practice</span>
+    <div class="pills">
+        <label class="pill"><input type="radio" name="meditation"/><span>Never</span></label>
+        <label class="pill"><input type="radio" name="meditation"/><span>Sometimes</span></label>
+        <label class="pill"><input type="radio" name="meditation"/><span>Regular</span></label>
+    </div>
+    <div class="field-row"><span class="field-label">Currently in coaching or therapy?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="coaching"/><span>Yes</span></label><label class="toggle"><input type="radio" name="coaching"/><span>No</span></label></div></div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S8 -->
+<div class="step-panel" data-step="8">
+    <span class="section-label">Section 8 of 11</span>
+    <h2>Lifestyle &amp; Environment</h2>
+    <p class="step-desc">Your environment shapes your habits more than willpower does. Let's understand the full picture.</p>
+    <div class="form-row">
+        <div class="form-group"><label>Screen Time (hrs / day)</label><input type="number" placeholder="e.g. 8" min="0" max="24"/></div>
+        <div class="form-group"><label>Time Outdoors (hrs / week)</label><input type="number" placeholder="e.g. 5" min="0"/></div>
+    </div>
+    <div class="scale-wrap"><span class="field-label">Social Connection (1&ndash;10)</span><div class="scale-row" id="scale_social"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Relationship Quality (1&ndash;10)</span><div class="scale-row" id="scale_relationships"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Work Satisfaction (1&ndash;10)</span><div class="scale-row" id="scale_worksatisfaction"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Financial Stress (1&ndash;10)</span><div class="scale-row" id="scale_financialstress"></div><div class="scale-labels"><span>Very low</span><span>Extreme</span></div></div>
+    <div class="scale-wrap"><span class="field-label">Time for Yourself (1&ndash;10)</span><div class="scale-row" id="scale_timeself"></div><div class="scale-labels"><span>Very poor</span><span>Elite / optimal</span></div></div>
+    <div class="field-row"><span class="field-label">Travel fatigue a regular issue?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="travelfatigue"/><span>Yes</span></label><label class="toggle"><input type="radio" name="travelfatigue"/><span>No</span></label></div></div>
+    <div class="field-row"><span class="field-label">Sleep environment issues?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="sleepenv"/><span>Yes</span></label><label class="toggle"><input type="radio" name="sleepenv"/><span>No</span></label></div></div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S9 -->
+<div class="step-panel" data-step="9">
+    <span class="section-label">Section 9 of 11</span>
+    <h2>Values &amp; Direction</h2>
+    <p class="step-desc">This is the most important section. Your answers here shape the entire direction of your program.</p>
+    <div class="form-row single"><div class="form-group"><label>Top 1&ndash;3 things that matter most to you right now</label><textarea placeholder="e.g. My family, building my company, staying sharp into my 70s&#8230;"></textarea></div></div>
+    <div class="form-row single"><div class="form-group"><label>Top 1&ndash;3 health worries</label><textarea placeholder="e.g. Heart disease risk, low energy affecting my performance&#8230;"></textarea></div></div>
+    <div class="form-row single"><div class="form-group"><label>Top 1&ndash;3 goals for the next phase of your life</label><textarea placeholder="e.g. Run a half marathon, have energy to be fully present with my family&#8230;"></textarea></div></div>
+    <div class="form-row single"><div class="form-group"><label>What would success in this program look like for you?</label><textarea placeholder="In your own words &mdash; what does winning look like in 6 months?"></textarea></div></div>
+    <div class="form-row">
+        <div class="form-group"><label>Biggest obstacle to health right now</label><textarea placeholder="What gets in the way most?" style="min-height:80px"></textarea></div>
+        <div class="form-group"><label>Your biggest strength</label><textarea placeholder="What do you already do well?" style="min-height:80px"></textarea></div>
+    </div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S10 -->
+<div class="step-panel" data-step="10">
+    <span class="section-label">Section 10 of 11</span>
+    <h2>Program Goals</h2>
+    <p class="step-desc">What are you here to accomplish? Select everything that resonates, then we&rsquo;ll help you prioritise.</p>
+    <span class="field-label">Goals <span style="font-weight:400;color:var(--grey)">(check all that apply)</span></span>
+    <div class="pills">
+        <label class="pill"><input type="checkbox" name="goals"/><span>Energy</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Prevent disease</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Reverse disease</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Lose fat</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Build muscle</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Improve sleep</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Improve focus</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Reduce stress</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Performance</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Longevity</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Hormones</span></label>
+        <label class="pill"><input type="checkbox" name="goals"/><span>Other</span></label>
+    </div>
+    <div class="form-row single"><div class="form-group"><label>Rank your top 3 priorities (in order)</label><textarea placeholder="e.g. 1. Energy  2. Longevity  3. Lose fat" style="min-height:70px"></textarea></div></div>
+    <div class="scale-wrap"><span class="field-label">How urgent does this feel right now? (1&ndash;10)</span><div class="scale-row" id="scale_urgency"></div><div class="scale-labels"><span>Not urgent</span><span>Critical now</span></div></div>
+    <div class="scale-wrap"><span class="field-label">How committed are you to making real changes? (1&ndash;10)</span><div class="scale-row" id="scale_commitment"></div><div class="scale-labels"><span>Exploring</span><span>Fully committed</span></div></div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-primary" onclick="next()">Next &#8594;</button>
+    </div>
+</div>
+
+<!-- S11 -->
+<div class="step-panel" data-step="11">
+    <span class="section-label">Section 11 of 11</span>
+    <h2>Readiness</h2>
+    <p class="step-desc">Last section. Help us understand how to structure support that fits your real life.</p>
+    <div class="form-row single"><div class="form-group"><label>How much time per week can you realistically dedicate?</label><input type="text" placeholder="e.g. 4&ndash;5 hours, 30 min/day"/></div></div>
+    <div class="field-row"><span class="field-label">Willing to change your diet?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="changediet"/><span>Yes</span></label><label class="toggle"><input type="radio" name="changediet"/><span>No</span></label><label class="toggle"><input type="radio" name="changediet"/><span>Maybe</span></label></div></div>
+    <div class="field-row"><span class="field-label">Willing to change your exercise?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="changeex"/><span>Yes</span></label><label class="toggle"><input type="radio" name="changeex"/><span>No</span></label><label class="toggle"><input type="radio" name="changeex"/><span>Maybe</span></label></div></div>
+    <div class="field-row"><span class="field-label">Willing to do recommended testing?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="dotest"/><span>Yes</span></label><label class="toggle"><input type="radio" name="dotest"/><span>No</span></label></div></div>
+    <div class="field-row"><span class="field-label">Willing to track metrics / habits?</span><div class="toggle-group"><label class="toggle"><input type="radio" name="dotrack"/><span>Yes</span></label><label class="toggle"><input type="radio" name="dotrack"/><span>No</span></label></div></div>
+    <div class="scale-wrap"><span class="field-label">How confident are you that you&rsquo;ll follow through? (1&ndash;10)</span><div class="scale-row" id="scale_confidence"></div><div class="scale-labels"><span>Not confident</span><span>Fully confident</span></div></div>
+    <div class="form-row">
+        <div class="form-group"><label>Biggest obstacle to following through</label><textarea placeholder="e.g. Travel schedule, lack of accountability&#8230;" style="min-height:80px"></textarea></div>
+        <div class="form-group"><label>Biggest source of support</label><textarea placeholder="e.g. Spouse, business partner, personal trainer&#8230;" style="min-height:80px"></textarea></div>
+    </div>
+    <div class="form-nav">
+        <button class="btn btn-ghost" onclick="prev()">&#8592; Previous</button>
+        <button class="btn btn-submit" onclick="submitForm()">Submit Profile &#8594;</button>
+    </div>
+</div>
+
+<!-- Completion -->
+<div class="completion" id="completion">
+    <div class="completion-icon">&#127919;</div>
+    <span class="section-label">Profile Complete</span>
+    <h2>Thank you for trusting us.</h2>
+    <p>Your profile has been submitted. A member of the Integrative Health team will be in touch within 48 hours to schedule your first expert session.</p>
+</div>
+
+</div>
+</div>
+
 <script>
-    let currentStep = 1;
-    const totalSteps = 6;
+const TOTAL = 11;
+let current = 1;
 
-    // ── Navigation ──
-    function nextStep() {
-        if (!validateStep(currentStep)) return;
-        if (currentStep < totalSteps) {
-            goToStep(currentStep + 1);
-        }
+const scaleIds = [
+    'scale_lifesatisfaction','scale_currenthealth',
+    'scale_nutrition',
+    'scale_fitness','scale_exenergy','scale_recovery',
+    'scale_sleepquality','scale_morningenergy','scale_afternoonenergy','scale_eveningenergy',
+    'scale_workstress','scale_lifestress','scale_anxiety','scale_mood','scale_focus','scale_emotionalcontrol','scale_resilience','scale_purpose',
+    'scale_social','scale_relationships','scale_worksatisfaction','scale_financialstress','scale_timeself',
+    'scale_urgency','scale_commitment','scale_confidence'
+];
+
+scaleIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    for (let i = 1; i <= 10; i++) {
+        const lbl = document.createElement('label');
+        lbl.className = 'scale-btn';
+        lbl.innerHTML = '<input type="radio" name="' + id + '" value="' + i + '"/><span>' + i + '</span>';
+        el.appendChild(lbl);
     }
+});
 
-    function prevStep() {
-        if (currentStep > 1) {
-            goToStep(currentStep - 1);
-        }
-    }
-
-    function goToStep(step) {
-        // Hide current
-        document.querySelector(`.step-panel[data-step="${currentStep}"]`).classList.remove('active');
-        // Show target
-        document.querySelector(`.step-panel[data-step="${step}"]`).classList.add('active');
-
-        // Update progress
-        document.querySelectorAll('.progress-step').forEach(el => {
-            const s = parseInt(el.dataset.step);
-            el.classList.remove('active', 'completed');
-            if (s === step) el.classList.add('active');
-            else if (s < step) el.classList.add('completed');
-        });
-
-        // Update progress line
-        const pct = ((step - 1) / (totalSteps - 1)) * 100;
-        document.getElementById('progressFill').style.width = pct + '%';
-
-        currentStep = step;
-
-        // Build review if step 6
-        if (step === 6) buildReview();
-
-        // Scroll to top of form
-        document.querySelector('.progress-container').scrollIntoView({ behavior: 'smooth' });
-    }
-
-    // Allow clicking progress steps to navigate (only to completed steps)
-    document.querySelectorAll('.progress-step').forEach(el => {
-        el.addEventListener('click', () => {
-            const step = parseInt(el.dataset.step);
-            if (step < currentStep) goToStep(step);
-        });
+function updateProgress() {
+    const pct = ((current - 1) / TOTAL) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressText').textContent = current + ' of ' + TOTAL;
+    document.querySelectorAll('.progress-step').forEach(function(el, i) {
+        el.classList.remove('active','done');
+        if (i + 1 === current) el.classList.add('active');
+        if (i + 1 < current)  el.classList.add('done');
     });
+    var active = document.querySelector('.progress-step.active');
+    if (active) active.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
 
-    // ── Validation ──
-    function validateStep(step) {
-        const panel = document.querySelector(`.step-panel[data-step="${step}"]`);
-        let valid = true;
+function showStep(n) {
+    document.querySelectorAll('.step-panel').forEach(function(p) { p.classList.remove('active'); });
+    var panel = document.querySelector('.step-panel[data-step="' + n + '"]');
+    if (panel) { panel.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    updateProgress();
+}
 
-        // Clear previous errors
-        panel.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-        panel.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+function goTo(n) { if (n >= 1 && n <= TOTAL) { current = n; showStep(current); } }
+function next()  { if (current < TOTAL) { current++; showStep(current); } }
+function prev()  { if (current > 1) { current--; showStep(current); } }
 
-        if (step === 1) {
-            const fields = ['firstName', 'lastName', 'email', 'phone', 'city'];
-            fields.forEach(name => {
-                const input = panel.querySelector(`[name="${name}"]`);
-                if (!input.value.trim()) {
-                    input.classList.add('error');
-                    input.nextElementSibling?.classList.add('show');
-                    valid = false;
-                }
-                if (name === 'email' && input.value && !/\S+@\S+\.\S+/.test(input.value)) {
-                    input.classList.add('error');
-                    input.nextElementSibling?.classList.add('show');
-                    valid = false;
-                }
-            });
-        }
+function submitForm() {
+    document.querySelectorAll('.step-panel').forEach(function(p) { p.style.display = 'none'; });
+    document.getElementById('completion').classList.add('show');
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressText').textContent = 'Complete';
+    document.querySelectorAll('.progress-step').forEach(function(el) { el.classList.remove('active'); el.classList.add('done'); });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-        if (step === 2) {
-            const persona = panel.querySelector('[name="persona"]:checked');
-            if (!persona) {
-                // Highlight persona cards
-                panel.querySelectorAll('.persona-option .persona-label').forEach(el => {
-                    el.style.borderColor = 'var(--red)';
-                    setTimeout(() => el.style.borderColor = '', 2000);
-                });
-                valid = false;
-            }
-        }
-
-        if (step === 3) {
-            const age = panel.querySelector('[name="age"]');
-            if (!age.value || age.value < 18 || age.value > 100) {
-                age.classList.add('error');
-                age.nextElementSibling?.classList.add('show');
-                valid = false;
-            }
-        }
-
-        // Shake on invalid
-        if (!valid) {
-            panel.style.animation = 'none';
-            panel.offsetHeight; // trigger reflow
-            panel.style.animation = 'shake 0.4s ease';
-        }
-
-        return valid;
-    }
-
-    // Shake keyframes
-    const shakeStyle = document.createElement('style');
-    shakeStyle.textContent = `@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }`;
-    document.head.appendChild(shakeStyle);
-
-    // Clear error on input
-    document.querySelectorAll('input, select, textarea').forEach(el => {
-        el.addEventListener('input', () => {
-            el.classList.remove('error');
-            el.nextElementSibling?.classList.remove('show');
-        });
-    });
-
-    // ── Toggle Buttons ──
-    function toggleSelect(btn, name, value) {
-        const hidden = document.querySelector(`input[name="${name}"]`);
-        const group = btn.parentElement;
-
-        group.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        hidden.value = value;
-
-        // Show/hide conditional fields
-        if (name === 'hasPhysician') {
-            document.getElementById('physicianField').classList.toggle('show', value === 'yes');
-        }
-    }
-
-    // ── Consent checkbox ──
-    document.getElementById('consent').addEventListener('change', function() {
-        document.getElementById('submitBtn').disabled = !this.checked;
-    });
-
-    // ── Build Review ──
-    function buildReview() {
-        const form = document.getElementById('intakeForm');
-        const data = new FormData(form);
-
-        function getVal(name) { return data.get(name) || '—'; }
-        function getChecked(name) {
-            const checks = [];
-            form.querySelectorAll(`[name="${name}"]:checked`).forEach(c => {
-                checks.push(c.parentElement.querySelector('span')?.textContent || c.value);
-            });
-            return checks.length ? checks.join(', ') : '—';
-        }
-        function getRadioLabel(name) {
-            const checked = form.querySelector(`[name="${name}"]:checked`);
-            if (!checked) return '—';
-            const label = checked.closest('label') || checked.closest('.persona-option');
-            const title = label?.querySelector('.persona-title, .card-title');
-            return title ? title.textContent.replace(/[^\w\s\-–]/g, '').trim() : checked.value;
-        }
-        function getSelectLabel(name) {
-            const select = form.querySelector(`[name="${name}"]`);
-            return select && select.selectedIndex > 0 ? select.options[select.selectedIndex].text : '—';
-        }
-
-        const referralMap = { linkedin: 'LinkedIn', referral: 'Friend / Colleague', email: 'Email', event: 'Event / Presentation', search: 'Online Search', other: 'Other' };
-        const exerciseMap = { none: 'Rarely (0/week)', light: 'Light (1–2/week)', moderate: 'Moderate (3–4/week)', active: 'Active (5+/week)' };
-        const timeframeMap = { asap: 'As soon as possible', '1-month': 'Within 1 month', '3-months': 'Within 3 months', exploring: 'Just exploring' };
-
-        const html = `
-            <div class="review-section">
-                <div class="review-header">
-                    <h3>Contact &amp; Basic Info</h3>
-                    <button class="review-edit" onclick="goToStep(1)">Edit &rarr;</button>
-                </div>
-                <div class="review-divider"></div>
-                <div class="review-grid">
-                    <div class="review-item"><div class="review-label">Name</div><div class="review-value">${getVal('firstName')} ${getVal('lastName')}</div></div>
-                    <div class="review-item"><div class="review-label">Email</div><div class="review-value">${getVal('email')}</div></div>
-                    <div class="review-item"><div class="review-label">Phone</div><div class="review-value">${getVal('phone')}</div></div>
-                    <div class="review-item"><div class="review-label">City</div><div class="review-value">${getVal('city')}</div></div>
-                    <div class="review-item"><div class="review-label">Company</div><div class="review-value">${getVal('company')}</div></div>
-                    <div class="review-item"><div class="review-label">Title</div><div class="review-value">${getVal('title')}</div></div>
-                    <div class="review-item"><div class="review-label">Referral</div><div class="review-value">${referralMap[getVal('referral')] || '—'}</div></div>
-                </div>
-            </div>
-
-            <div class="review-section">
-                <div class="review-header">
-                    <h3>Leader Profile</h3>
-                    <button class="review-edit" onclick="goToStep(2)">Edit &rarr;</button>
-                </div>
-                <div class="review-divider"></div>
-                <div class="review-grid">
-                    <div class="review-item"><div class="review-label">Persona</div><div class="review-value">${getRadioLabel('persona')}</div></div>
-                    <div class="review-item"><div class="review-label">Motivations</div><div class="review-value">${getChecked('motivation')}</div></div>
-                </div>
-                <div class="review-item" style="padding-top: 8px;"><div class="review-label">6-Month Vision</div><div class="review-value">${getVal('successVision')}</div></div>
-            </div>
-
-            <div class="review-section">
-                <div class="review-header">
-                    <h3>Health Snapshot</h3>
-                    <button class="review-edit" onclick="goToStep(3)">Edit &rarr;</button>
-                </div>
-                <div class="review-divider"></div>
-                <div class="review-grid">
-                    <div class="review-item"><div class="review-label">Age</div><div class="review-value">${getVal('age')}</div></div>
-                    <div class="review-item"><div class="review-label">Height</div><div class="review-value">${getVal('height')}</div></div>
-                    <div class="review-item"><div class="review-label">Weight</div><div class="review-value">${getVal('weight')}</div></div>
-                    <div class="review-item"><div class="review-label">Physician</div><div class="review-value">${getVal('hasPhysician') === 'yes' ? 'Yes — ' + getVal('physicianName') : getVal('hasPhysician') === 'no' ? 'No' : '—'}</div></div>
-                </div>
-                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Conditions</div><div class="review-value">${getChecked('conditions')}${getVal('conditionsOther') !== '—' ? ' | ' + getVal('conditionsOther') : ''}</div></div>
-                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Family History</div><div class="review-value">${getChecked('familyHistory')}</div></div>
-                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Medications</div><div class="review-value">${getVal('medications')}</div></div>
-            </div>
-
-            <div class="review-section">
-                <div class="review-header">
-                    <h3>Lifestyle &amp; Habits</h3>
-                    <button class="review-edit" onclick="goToStep(4)">Edit &rarr;</button>
-                </div>
-                <div class="review-divider"></div>
-                <div class="review-grid">
-                    <div class="review-item"><div class="review-label">Exercise</div><div class="review-value">${exerciseMap[getRadioLabel('exercise')?.toLowerCase()] || getRadioLabel('exercise')}</div></div>
-                    <div class="review-item"><div class="review-label">Sleep Quality</div><div class="review-value">${getSelectLabel('sleepQuality')}</div></div>
-                    <div class="review-item"><div class="review-label">Sleep Hours</div><div class="review-value">${getSelectLabel('sleepHours')}</div></div>
-                    <div class="review-item"><div class="review-label">Alcohol</div><div class="review-value">${getSelectLabel('alcohol')}</div></div>
-                    <div class="review-item"><div class="review-label">Nutrition</div><div class="review-value">${getSelectLabel('nutrition')}</div></div>
-                    <div class="review-item"><div class="review-label">Smoking / Nicotine</div><div class="review-value">${getVal('smoking') === 'yes' ? 'Yes' : getVal('smoking') === 'no' ? 'No' : '—'}</div></div>
-                    <div class="review-item"><div class="review-label">Stress Level</div><div class="review-value">${getVal('stress')} / 10</div></div>
-                </div>
-            </div>
-
-            <div class="review-section">
-                <div class="review-header">
-                    <h3>Goals &amp; Readiness</h3>
-                    <button class="review-edit" onclick="goToStep(5)">Edit &rarr;</button>
-                </div>
-                <div class="review-divider"></div>
-                <div class="review-grid">
-                    <div class="review-item"><div class="review-label">Health Goals</div><div class="review-value">${getChecked('goals')}</div></div>
-                    <div class="review-item"><div class="review-label">Commitment</div><div class="review-value">${getVal('commitment')} / 10</div></div>
-                    <div class="review-item"><div class="review-label">Timeframe</div><div class="review-value">${timeframeMap[getVal('timeframe')] || '—'}</div></div>
-                    <div class="review-item"><div class="review-label">Scheduling</div><div class="review-value">${getVal('scheduling')}</div></div>
-                </div>
-                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Biggest Obstacle</div><div class="review-value">${getVal('obstacle')}</div></div>
-                <div class="review-item" style="padding-top: 8px;"><div class="review-label">Additional Notes</div><div class="review-value">${getVal('additionalNotes')}</div></div>
-            </div>
-        `;
-
-        document.getElementById('reviewContent').innerHTML = html;
-    }
-
-    // ── Submit ──
-    function submitForm() {
-        const form = document.getElementById('intakeForm');
-        const data = new FormData(form);
-
-        // Build email body
-        let body = 'INTEGRATIVE HEALTH — CHARTER MEMBER APPLICATION\n\n';
-        for (const [key, value] of data.entries()) {
-            if (key === 'consent') continue;
-            body += `${key}: ${value}\n`;
-        }
-
-        // Also collect checkboxes
-        ['motivation', 'conditions', 'familyHistory', 'goals'].forEach(name => {
-            const checked = [];
-            form.querySelectorAll(`[name="${name}"]:checked`).forEach(c => checked.push(c.value));
-            body += `${name}: ${checked.join(', ')}\n`;
-        });
-
-        // For now, mailto approach (can be replaced with fetch to an API)
-        const mailtoLink = `mailto:sean@calhan.ca?subject=${encodeURIComponent('Charter Member Application — ' + data.get('firstName') + ' ' + data.get('lastName'))}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailtoLink;
-
-        // Show success
-        form.style.display = 'none';
-        document.getElementById('successScreen').classList.add('active');
-
-        // Scroll up
-        document.querySelector('.form-header').scrollIntoView({ behavior: 'smooth' });
-    }
+updateProgress();
 </script>
-
 </body>
 </html>
